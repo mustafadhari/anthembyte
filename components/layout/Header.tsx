@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 const navItems = [
     { name: "Services", href: "#services" },
-    { name: "Work", href: "#work" },
+    { name: "Work", href: "/work" },
     { name: "About", href: "#about" },
 ];
 
@@ -15,12 +16,12 @@ export function Header() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b-2 border-black bg-white/80 backdrop-blur-sm">
-            <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-                <Link href="/" className="flex items-center gap-2">
-                    <span className="text-2xl font-bold tracking-tighter uppercase relative">
-                        AnthemByte
-                        <span className="absolute -bottom-1 left-0 w-full h-1 bg-neo-accent"></span>
+        <header className="sticky top-0 z-50 w-full border-b-2 border-black bg-white/90 backdrop-blur-sm">
+            <div className="container mx-auto flex h-24 items-center justify-between px-4 md:px-6">
+                <Link href="/" className="flex items-center gap-2 group">
+                    <span className="text-3xl font-black tracking-widest uppercase relative flex items-center">
+                        <span className="text-transparent stroke-text text-stroke-1 hover:text-neo-main transition-colors duration-300">Anthem</span>
+                        <span className="text-transparent stroke-text text-stroke-1 text-stroke-accent hover:text-neo-accent transition-colors duration-300">Byte</span>
                     </span>
                 </Link>
 

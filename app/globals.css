@@ -2,12 +2,16 @@
 
 @theme {
   --font-outfit: var(--font-outfit);
+  --font-space-mono: var(--font-space-mono);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
   --color-neo-main: var(--neo-main);
   --color-neo-accent: var(--neo-accent);
+  --color-neo-highlight: var(--neo-highlight);
+  --color-neo-secondary: var(--neo-secondary);
+  --color-neo-detail: var(--neo-detail);
   --color-neo-border: var(--neo-border);
   --color-neo-shadow: var(--neo-shadow);
 }
@@ -17,14 +21,21 @@
   --foreground: #000000;
 
   /* Neo Brutalism Palette */
-  --neo-main: #2A2A2A;
-  /* Dark Grey for primary elements */
-  --neo-accent: #FF5E5E;
-  /* Vibrant Red for accents */
+  --neo-main: #084C61;
+  /* Deep Blue */
+  --neo-accent: #DB504A;
+  /* Red */
+  --neo-highlight: #E3B505;
+  /* Yellow */
+  --neo-secondary: #4F6D7A;
+  /* Muted Blue */
+  --neo-detail: #56A3A6;
+  /* Teal */
+
   --neo-border: #000000;
-  /* Pure Black for borders */
+  /* Pure Black */
   --neo-shadow: #000000;
-  /* Pure Black for shadows */
+  /* Pure Black */
 
   --font-outfit: 'Outfit', sans-serif;
 }
@@ -32,6 +43,9 @@
 @layer base {
   body {
     @apply bg-background text-foreground font-outfit antialiased selection:bg-neo-accent selection:text-white;
+    background-image: linear-gradient(to right, #e5e5e5 1px, transparent 1px),
+      linear-gradient(to bottom, #e5e5e5 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 }
 
@@ -49,7 +63,7 @@
   }
 
   .neo-input {
-    @apply w-full px-4 py-3 bg-white outline-none transition-all duration-200;
+    @apply w-full px-4 py-3 bg-white outline-none transition-all duration-200 rounded-none;
     border: 2px solid var(--neo-border);
   }
 
@@ -58,7 +72,7 @@
   }
 
   .neo-btn {
-    @apply px-6 py-3 font-bold bg-white text-black transition-all cursor-pointer;
+    @apply px-6 py-3 font-bold bg-white text-black transition-all cursor-pointer rounded-none;
     border: 2px solid var(--neo-border);
   }
 
@@ -81,5 +95,9 @@
 
   .text-stroke-white {
     -webkit-text-stroke-color: white;
+  }
+
+  .text-stroke-accent {
+    -webkit-text-stroke-color: var(--neo-accent);
   }
 }
