@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V-Lights — Illuminate Your World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a96e;
+      --gold-light: #e8d5a3;
+      --gold-dark: #9a7940;
+      --black: #0a0a0a;
+      --dark: #111111;
+      --dark-2: #1a1a1a;
+      --dark-3: #242424;
+      --mid: #333333;
+      --light: #f5f0e8;
+      --white: #ffffff;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--black);
+      color: var(--light);
+      overflow-x: hidden;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.5rem 4rem;
+      transition: all 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(201,169,110,0.15);
+      padding: 1rem 4rem;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--white); }
+    .nav-links {
+      display: flex; gap: 2.5rem; list-style: none;
+    }
+    .nav-links a {
+      color: rgba(245,240,232,0.75);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.55rem 1.5rem;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 1.5px; background: var(--gold); display: block; transition: 0.3s; }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      height: 100vh; min-height: 700px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      background-image: url('images/hero-bg.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.85) 100%);
+      z-index: 1;
+    }
+    /* chandelier SVG lines animation */
+    .chandelier-graphic {
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 600px; opacity: 0.18;
+      pointer-events: none;
+    }
+    /* glow orbs */
+    .orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); pointer-events: none;
+      animation: orb-drift 8s ease-in-out infinite alternate;
+    }
+    .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,169,110,0.18), transparent 70%); top: -100px; left: 30%; animation-delay: 0s; }
+    .orb-2 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(201,169,110,0.1), transparent 70%); bottom: 10%; right: 15%; animation-delay: -3s; }
+    @keyframes orb-drift { from { transform: translate(0, 0); } to { transform: translate(30px, 30px); } }
+
+    /* light rays */
+    .rays {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 4px; height: 60vh;
+      background: linear-gradient(180deg, rgba(201,169,110,0.4) 0%, transparent 100%);
+      box-shadow: 0 0 40px 20px rgba(201,169,110,0.08);
+      animation: ray-pulse 4s ease-in-out infinite alternate;
+    }
+    @keyframes ray-pulse { from { opacity: 0.6; } to { opacity: 1; } }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 0 1.5rem;
+      animation: fade-up 1.2s ease both;
+    }
+    @keyframes fade-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      padding: 0.4rem 1.2rem;
+      border: 1px solid rgba(201,169,110,0.3);
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(245,240,232,0.6);
+      max-width: 500px; margin: 0 auto 2.5rem;
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+    }
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      padding: 0.9rem 2.5rem;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .btn-primary::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(255,255,255,0.15);
+      transform: translateX(-101%);
+      transition: transform 0.3s;
+    }
+    .btn-primary:hover::after { transform: translateX(0); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--light);
+      border: 1px solid rgba(245,240,232,0.3);
+      padding: 0.9rem 2.5rem;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+    .scroll-indicator {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: rgba(245,240,232,0.4); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .scroll-indicator::after {
+      content: ''; display: block;
+      width: 1px; height: 40px;
+      background: linear-gradient(180deg, var(--gold), transparent);
+    }
+    @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+
+    /* ─── DIVIDER ─── */
+    .gold-divider {
+      display: flex; align-items: center; gap: 1.5rem;
+      margin: 0 auto; max-width: 300px;
+    }
+    .gold-divider::before, .gold-divider::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .gold-divider-icon { color: var(--gold); font-size: 0.7rem; letter-spacing: 0.3em; white-space: nowrap; }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 7rem 4rem; }
+    .section-label {
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-desc {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(245,240,232,0.55);
+      line-height: 1.9;
+      max-width: 560px;
+    }
+
+    /* ─── MARQUEE BAND ─── */
+    .marquee-band {
+      background: var(--gold);
+      overflow: hidden;
+      padding: 0.9rem 0;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex; gap: 3rem;
+      animation: marquee 20s linear infinite;
+    }
+    .marquee-track span {
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--black);
+      flex-shrink: 0;
+    }
+    .marquee-dot { color: var(--black); opacity: 0.4; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ─── FEATURED COLLECTION ─── */
+    #collection { background: var(--dark); }
+    .collection-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 4rem; gap: 2rem; flex-wrap: wrap;
+    }
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1.5rem;
+    }
+    .product-card {
+      background: var(--dark-2);
+      position: relative; overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover { transform: translateY(-4px); }
+    .product-card.featured {
+      grid-row: span 2;
+    }
+    .product-img {
+      width: 100%; aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+      background: var(--dark-3);
+    }
+    .product-card.featured .product-img { aspect-ratio: auto; height: 100%; min-height: 500px; }
+    .product-card:hover .product-img { transform: scale(1.04); }
+    /* Placeholder chandelier illustrations via CSS */
+    .product-img-wrapper {
+      overflow: hidden; position: relative;
+    }
+    .product-img-wrapper::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.7) 100%);
+    }
+    .chandelier-placeholder {
+      width: 100%; display: flex; align-items: center; justify-content: center;
+      background: var(--dark-3);
+      position: relative; overflow: hidden;
+    }
+    .chandelier-placeholder svg { width: 60%; max-width: 200px; opacity: 0.9; }
+    .product-card.featured .chandelier-placeholder { min-height: 540px; }
+    .chandelier-placeholder:not(.featured .chandelier-placeholder) { min-height: 240px; }
+
+    /* shimmer overlay */
+    .product-img-wrapper::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(135deg, transparent 40%, rgba(201,169,110,0.06) 50%, transparent 60%);
+      transform: translateX(-100%);
+      transition: transform 0.8s ease;
+    }
+    .product-card:hover .product-img-wrapper::before { transform: translateX(100%); }
+
+    .product-info {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      padding: 1.5rem;
+    }
+    .product-tag {
+      display: inline-block;
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--gold);
+      background: rgba(201,169,110,0.12);
+      border: 1px solid rgba(201,169,110,0.3);
+      padding: 0.25rem 0.6rem; margin-bottom: 0.6rem;
+    }
+    .product-name {
+      font-family: var(--serif);
+      font-size: 1.3rem; font-weight: 400;
+      color: var(--white); margin-bottom: 0.3rem;
+    }
+    .product-card.featured .product-name { font-size: 1.8rem; }
+    .product-price {
+      font-size: 0.85rem; font-weight: 300;
+      color: rgba(245,240,232,0.6);
+    }
+    .product-price strong { color: var(--gold); font-weight: 500; }
+    .product-hover-btn {
+      position: absolute; top: 1rem; right: 1rem; z-index: 3;
+      background: var(--gold); color: var(--black);
+      border: none; padding: 0.5rem 1rem;
+      font-family: var(--sans); font-size: 0.65rem;
+      font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; cursor: pointer;
+      opacity: 0; transform: translateY(-8px);
+      transition: all 0.3s;
+    }
+    .product-card:hover .product-hover-btn { opacity: 1; transform: translateY(0); }
+
+    /* ─── CATEGORIES ─── */
+    #categories { background: var(--black); }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 4rem;
+      border: 1px solid rgba(201,169,110,0.1);
+    }
+    .cat-card {
+      padding: 3rem 2rem;
+      background: var(--dark-2);
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s;
+      border: 1px solid transparent;
+      text-decoration: none;
+      display: block;
+    }
+    .cat-card:hover {
+      background: var(--dark-3);
+      border-color: rgba(201,169,110,0.2);
+    }
+    .cat-icon {
+      width: 60px; height: 60px;
+      margin: 0 auto 1.5rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cat-icon svg { width: 100%; height: 100%; }
+    .cat-name {
+      font-family: var(--serif);
+      font-size: 1.25rem; font-weight: 400;
+      color: var(--white); margin-bottom: 0.5rem;
+    }
+    .cat-count {
+      font-size: 0.72rem; font-weight: 300;
+      color: rgba(245,240,232,0.4);
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── STORY / ABOUT ─── */
+    #story {
+      background: var(--dark);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: center;
+      padding: 8rem 6rem;
+    }
+    .story-visual {
+      position: relative;
+    }
+    .story-main-img {
+      width: 100%; aspect-ratio: 3/4;
+      background: var(--dark-3);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .story-main-img svg { width: 55%; opacity: 0.85; }
+    .story-accent-box {
+      position: absolute; bottom: -2rem; right: -2rem;
+      width: 200px; padding: 1.5rem;
+      background: var(--gold);
+      color: var(--black);
+    }
+    .story-accent-box .num {
+      font-family: var(--serif);
+      font-size: 3rem; font-weight: 300;
+      line-height: 1;
+    }
+    .story-accent-box .label {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+    .story-badge {
+      position: absolute; top: -1.5rem; left: -1.5rem;
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: var(--dark-2);
+      border: 1px solid rgba(201,169,110,0.3);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+    }
+    .story-badge .b-num { font-family: var(--serif); font-size: 1.8rem; font-weight: 300; color: var(--gold); line-height: 1; }
+    .story-badge .b-label { font-size: 0.55rem; letter-spacing: 0.2em; color: rgba(245,240,232,0.5); text-transform: uppercase; margin-top: 0.2rem; }
+    .story-content .section-desc { margin-bottom: 2rem; }
+    .story-stats {
+      display: flex; gap: 3rem; margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(201,169,110,0.15);
+    }
+    .stat-item .num {
+      font-family: var(--serif);
+      font-size: 2.5rem; font-weight: 300;
+      color: var(--gold); line-height: 1; margin-bottom: 0.3rem;
+    }
+    .stat-item .lbl {
+      font-size: 0.7rem; font-weight: 400;
+      color: rgba(245,240,232,0.45);
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── FEATURES ─── */
+    #features { background: var(--black); text-align: center; }
+    .features-intro { margin-bottom: 5rem; }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+    }
+    .feature-card {
+      padding: 3rem 2.5rem;
+      border: 1px solid rgba(201,169,110,0.1);
+      background: rgba(201,169,110,0.02);
+      transition: border-color 0.3s, background 0.3s;
+      text-align: left;
+    }
+    .feature-card:hover {
+      border-color: rgba(201,169,110,0.35);
+      background: rgba(201,169,110,0.04);
+    }
+    .feature-num {
+      font-family: var(--serif);
+      font-size: 3rem; font-weight: 300;
+      color: rgba(201,169,110,0.25);
+      line-height: 1; margin-bottom: 1.5rem;
+    }
+    .feature-title {
+      font-family: var(--serif);
+      font-size: 1.3rem; font-weight: 400;
+      color: var(--white); margin-bottom: 0.8rem;
+    }
+    .feature-desc {
+      font-size: 0.85rem; font-weight: 300;
+      color: rgba(245,240,232,0.5);
+      line-height: 1.8;
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonials { background: var(--dark); overflow: hidden; }
+    .testimonials-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .testimonials-left .section-desc { margin-bottom: 2rem; }
+    .review-stars { color: var(--gold); font-size: 1rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .testimonial-cards { display: flex; flex-direction: column; gap: 1.5rem; }
+    .t-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(201,169,110,0.1);
+      padding: 2rem;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .t-card:hover { border-color: rgba(201,169,110,0.3); }
+    .t-card::before {
+      content: '"';
+      font-family: var(--serif);
+      font-size: 5rem; font-weight: 300;
+      color: var(--gold); opacity: 0.15;
+      position: absolute; top: -0.5rem; left: 1.2rem;
+      line-height: 1;
+    }
+    .t-text {
+      font-family: var(--serif);
+      font-size: 1.05rem; font-weight: 300;
+      font-style: italic;
+      color: rgba(245,240,232,0.8);
+      line-height: 1.7; margin-bottom: 1.2rem;
+    }
+    .t-author { display: flex; align-items: center; gap: 1rem; }
+    .t-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--mid);
+      border: 1px solid rgba(201,169,110,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 1.1rem;
+      color: var(--gold);
+    }
+    .t-name { font-size: 0.8rem; font-weight: 500; color: var(--white); }
+    .t-location { font-size: 0.7rem; font-weight: 300; color: rgba(245,240,232,0.4); }
+    .t-rating { margin-left: auto; color: var(--gold); font-size: 0.7rem; letter-spacing: 0.05em; }
+
+    /* ─── PROCESS ─── */
+    #process { background: var(--black); text-align: center; }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; margin-top: 5rem;
+      position: relative;
+    }
+    .process-steps::before {
+      content: ''; position: absolute;
+      top: 2.2rem; left: 12.5%; right: 12.5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+    }
+    .process-step { padding: 0 2rem; text-align: center; }
+    .step-circle {
+      width: 45px; height: 45px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      background: var(--black);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 2rem;
+      font-family: var(--serif);
+      font-size: 1.1rem; font-weight: 300;
+      color: var(--gold);
+      position: relative; z-index: 1;
+    }
+    .step-title {
+      font-family: var(--serif);
+      font-size: 1.15rem; font-weight: 400;
+      color: var(--white); margin-bottom: 0.6rem;
+    }
+    .step-desc {
+      font-size: 0.82rem; font-weight: 300;
+      color: rgba(245,240,232,0.45);
+      line-height: 1.75;
+    }
+
+    /* ─── CTA BANNER ─── */
+    #cta-banner {
+      padding: 7rem 4rem;
+      background:
+        radial-gradient(ellipse 80% 100% at 50% 50%, rgba(201,169,110,0.08) 0%, transparent 70%),
+        var(--dark-2);
+      text-align: center;
+      border-top: 1px solid rgba(201,169,110,0.1);
+      border-bottom: 1px solid rgba(201,169,110,0.1);
+    }
+    .cta-banner-title {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .cta-banner-title em { font-style: italic; color: var(--gold); }
+    .cta-banner-sub {
+      font-size: 0.95rem; font-weight: 300;
+      color: rgba(245,240,232,0.5);
+      margin-bottom: 3rem;
+    }
+    .cta-form {
+      display: flex; gap: 0;
+      max-width: 460px; margin: 0 auto;
+    }
+    .cta-input {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,169,110,0.25);
+      border-right: none;
+      color: var(--light);
+      padding: 0.9rem 1.2rem;
+      font-family: var(--sans);
+      font-size: 0.85rem; font-weight: 300;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .cta-input:focus { border-color: rgba(201,169,110,0.6); }
+    .cta-input::placeholder { color: rgba(245,240,232,0.3); }
+    .cta-submit {
+      background: var(--gold); color: var(--black);
+      border: none; padding: 0.9rem 1.8rem;
+      font-family: var(--sans);
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      cursor: pointer; transition: opacity 0.3s;
+      flex-shrink: 0;
+    }
+    .cta-submit:hover { opacity: 0.88; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(201,169,110,0.1);
+      padding: 5rem 4rem 2rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(201,169,110,0.08);
+    }
+    .footer-brand .footer-logo {
+      font-family: var(--serif);
+      font-size: 2rem; font-weight: 500;
+      color: var(--gold); letter-spacing: 0.1em;
+      margin-bottom: 1rem; display: block;
+    }
+    .footer-brand .footer-logo span { color: var(--white); }
+    .footer-brand p {
+      font-size: 0.82rem; font-weight: 300;
+      color: rgba(245,240,232,0.4);
+      line-height: 1.8; margin-bottom: 2rem;
+    }
+    .social-links { display: flex; gap: 0.8rem; }
+    .social-link {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(201,169,110,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(245,240,232,0.4);
+      text-decoration: none; font-size: 0.75rem;
+      transition: all 0.3s;
+    }
+    .social-link:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-col h4 {
+      font-family: var(--sans);
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-col li a {
+      font-size: 0.82rem; font-weight: 300;
+      color: rgba(245,240,232,0.45);
+      text-decoration: none; transition: color 0.3s;
+    }
+    .footer-col li a:hover { color: var(--gold); }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-size: 0.72rem; font-weight: 300;
+      color: rgba(245,240,232,0.25);
+      letter-spacing: 0.05em;
+    }
+    .footer-bottom-links { display: flex; gap: 2rem; }
+    .footer-bottom-links a {
+      font-size: 0.72rem; color: rgba(245,240,232,0.25);
+      text-decoration: none; transition: color 0.3s;
+    }
+    .footer-bottom-links a:hover { color: var(--gold); }
+
+    /* ─── REVEAL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1100px) {
+      #story { grid-template-columns: 1fr; gap: 3rem; padding: 6rem 3rem; }
+      .story-accent-box { right: 0; bottom: -1rem; }
+      .collection-grid { grid-template-columns: 1fr 1fr; }
+      .product-card.featured { grid-row: span 1; }
+      .product-card.featured .chandelier-placeholder { min-height: 300px; }
+    }
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 2rem; }
+      nav.scrolled { padding: 0.8rem 2rem; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 5rem 2rem; }
+      .collection-header { flex-direction: column; align-items: flex-start; }
+      .cat-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-steps::before { display: none; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .collection-grid { grid-template-columns: 1fr; }
+      .cat-grid { grid-template-columns: 1fr 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .story-stats { flex-direction: column; gap: 1.5rem; }
+      .process-steps { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .cta-form { flex-direction: column; }
+      .cta-input { border-right: 1px solid rgba(201,169,110,0.25); }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav id="navbar">
+  <a class="nav-logo" href="#"><span>V</span>-LIGHTS</a>
+  <ul class="nav-links">
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="#categories">Shop</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+  </ul>
+  <a href="#collection" class="nav-cta">Shop Now</a>
+  <div class="hamburger" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="rays"></div>
+
+  <!-- Chandelier graphic removed for full-screen immersive background -->
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Luxury Lighting — Est. 2010</div>
+    <h1 class="hero-title">
+      Where Light<br>Becomes <em>Art</em>
+    </h1>
+    <p class="hero-sub">
+      Handcrafted chandeliers and bespoke lighting solutions that transform
+      every space into a masterpiece of elegance.
+    </p>
+    <div class="hero-actions">
+      <a href="#collection" class="btn-primary">Explore Collection</a>
+      <a href="#story" class="btn-secondary">Our Story</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">Scroll</div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-band">
+  <div class="marquee-track">
+    <span>Handcrafted Excellence</span><span class="marquee-dot">◆</span>
+    <span>Custom Designs</span><span class="marquee-dot">◆</span>
+    <span>Premium Materials</span><span class="marquee-dot">◆</span>
+    <span>White Glove Installation</span><span class="marquee-dot">◆</span>
+    <span>Lifetime Warranty</span><span class="marquee-dot">◆</span>
+    <span>Bespoke Lighting</span><span class="marquee-dot">◆</span>
+    <span>Handcrafted Excellence</span><span class="marquee-dot">◆</span>
+    <span>Custom Designs</span><span class="marquee-dot">◆</span>
+    <span>Premium Materials</span><span class="marquee-dot">◆</span>
+    <span>White Glove Installation</span><span class="marquee-dot">◆</span>
+    <span>Lifetime Warranty</span><span class="marquee-dot">◆</span>
+    <span>Bespoke Lighting</span><span class="marquee-dot">◆</span>
+  </div>
+</div>
+
+<!-- ═══ FEATURED COLLECTION ═══ -->
+<section id="collection">
+  <div class="collection-header reveal">
+    <div>
+      <div class="section-label">Featured Collection</div>
+      <h2 class="section-title">Signature <em>Pieces</em></h2>
+    </div>
+    <p class="section-desc" style="max-width:360px;">
+      Each piece is a symphony of crystal, brass, and light — crafted to be the centerpiece of your finest spaces.
+    </p>
+  </div>
+
+  <div class="collection-grid">
+    <!-- Featured card -->
+    <div class="product-card featured reveal">
+      <div class="product-img-wrapper">
+        <img src="images/featured-1.png" alt="Grand Versailles Crystal" class="product-img" />
+      </div>
+      <div class="product-info">
+        <span class="product-tag">Bestseller</span>
+        <div class="product-name">Grand Versailles Crystal</div>
+        <div class="product-price">From <strong>$4,850</strong></div>
+      </div>
+      <button class="product-hover-btn">Quick View</button>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="product-card reveal reveal-delay-1">
+      <div class="product-img-wrapper">
+        <img src="images/featured-2.png" alt="Textured Glass Sconce" class="product-img" />
+      </div>
+      <div class="product-info">
+        <span class="product-tag">New Arrival</span>
+        <div class="product-name">Textured Glass Sconce</div>
+        <div class="product-price">From <strong>$2,100</strong></div>
+      </div>
+      <button class="product-hover-btn">Quick View</button>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="product-card reveal reveal-delay-2">
+      <div class="product-img-wrapper">
+        <img src="images/featured-3.png" alt="Vintage Brass Sconce" class="product-img" />
+      </div>
+      <div class="product-info">
+        <span class="product-tag">Limited Edition</span>
+        <div class="product-name">Vintage Brass Sconce</div>
+        <div class="product-price">From <strong>$3,200</strong></div>
+      </div>
+      <button class="product-hover-btn">Quick View</button>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="product-card reveal reveal-delay-1">
+      <div class="product-img-wrapper">
+        <img src="images/featured-4.png" alt="Aura Ring Chandelier" class="product-img" />
+      </div>
+      <div class="product-info">
+        <span class="product-tag">Modern</span>
+        <div class="product-name">Aura Ring Chandelier</div>
+        <div class="product-price">From <strong>$1,750</strong></div>
+      </div>
+      <button class="product-hover-btn">Quick View</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CATEGORIES ═══ -->
+<section id="categories">
+  <div class="reveal" style="text-align:center; margin-bottom: 1rem;">
+    <div class="section-label">Browse By Style</div>
+    <h2 class="section-title">Find Your <em>Perfect Light</em></h2>
+  </div>
+
+  <div class="cat-grid reveal">
+    <a class="cat-card" href="#">
+      <div class="cat-icon">
+        <svg viewBox="0 0 60 60" fill="none">
+          <line x1="30" y1="5" x2="30" y2="15" stroke="#c9a96e" stroke-width="1.5"/>
+          <ellipse cx="30" cy="20" rx="14" ry="5" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+          <line x1="16" y1="20" x2="5" y2="40" stroke="#c9a96e" stroke-width="1"/>
+          <line x1="30" y1="25" x2="30" y2="45" stroke="#c9a96e" stroke-width="1.2"/>
+          <line x1="44" y1="20" x2="55" y2="40" stroke="#c9a96e" stroke-width="1"/>
+          <polygon points="30,46 25,56 35,56" fill="rgba(201,169,110,0.4)" stroke="#c9a96e" stroke-width="0.8"/>
+          <ellipse cx="7" cy="43" rx="3" ry="5" fill="rgba(255,200,80,0.6)"/>
+          <ellipse cx="53" cy="43" rx="3" ry="5" fill="rgba(255,200,80,0.6)"/>
+        </svg>
+      </div>
+      <div class="cat-name">Chandeliers</div>
+      <div class="cat-count">124 pieces</div>
+    </a>
+    <a class="cat-card" href="#">
+      <div class="cat-icon">
+        <svg viewBox="0 0 60 60" fill="none">
+          <rect x="22" y="5" width="16" height="35" rx="2" stroke="#c9a96e" stroke-width="1.2" fill="rgba(201,169,110,0.06)"/>
+          <line x1="30" y1="40" x2="30" y2="48" stroke="#c9a96e" stroke-width="1.5"/>
+          <rect x="20" y="48" width="20" height="8" rx="1" stroke="#c9a96e" stroke-width="1.2" fill="rgba(201,169,110,0.08)"/>
+          <circle cx="30" cy="20" r="5" fill="rgba(255,210,80,0.3)" stroke="#c9a96e" stroke-width="0.8"/>
+          <circle cx="30" cy="20" r="2.5" fill="rgba(255,220,80,0.8)"/>
+        </svg>
+      </div>
+      <div class="cat-name">Wall Sconces</div>
+      <div class="cat-count">87 pieces</div>
+    </a>
+    <a class="cat-card" href="#">
+      <div class="cat-icon">
+        <svg viewBox="0 0 60 60" fill="none">
+          <polygon points="30,5 38,25 58,25 42,38 48,58 30,46 12,58 18,38 2,25 22,25" stroke="#c9a96e" stroke-width="1.2" fill="rgba(201,169,110,0.06)"/>
+          <circle cx="30" cy="30" r="5" fill="rgba(255,210,80,0.4)" stroke="#c9a96e" stroke-width="0.8"/>
+          <circle cx="30" cy="30" r="2.5" fill="rgba(255,220,80,0.85)"/>
+        </svg>
+      </div>
+      <div class="cat-name">Pendant Lights</div>
+      <div class="cat-count">203 pieces</div>
+    </a>
+    <a class="cat-card" href="#">
+      <div class="cat-icon">
+        <svg viewBox="0 0 60 60" fill="none">
+          <rect x="8" y="8" width="44" height="18" rx="2" stroke="#c9a96e" stroke-width="1.2" fill="rgba(201,169,110,0.06)"/>
+          <line x1="15" y1="26" x2="15" y2="52" stroke="#c9a96e" stroke-width="1"/>
+          <line x1="30" y1="26" x2="30" y2="52" stroke="#c9a96e" stroke-width="1"/>
+          <line x1="45" y1="26" x2="45" y2="52" stroke="#c9a96e" stroke-width="1"/>
+          <circle cx="15" cy="49" r="3.5" fill="rgba(255,210,80,0.35)" stroke="#c9a96e" stroke-width="0.8"/>
+          <circle cx="30" cy="49" r="3.5" fill="rgba(255,210,80,0.35)" stroke="#c9a96e" stroke-width="0.8"/>
+          <circle cx="45" cy="49" r="3.5" fill="rgba(255,210,80,0.35)" stroke="#c9a96e" stroke-width="0.8"/>
+          <circle cx="15" cy="49" r="1.5" fill="rgba(255,220,80,0.8)"/>
+          <circle cx="30" cy="49" r="1.5" fill="rgba(255,220,80,0.8)"/>
+          <circle cx="45" cy="49" r="1.5" fill="rgba(255,220,80,0.8)"/>
+        </svg>
+      </div>
+      <div class="cat-name">Ceiling Fixtures</div>
+      <div class="cat-count">156 pieces</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ OUR STORY ═══ -->
+<section id="story">
+  <div class="story-visual reveal">
+    <div class="story-main-img">
+      <img src="images/story.png" alt="Classic Chandelier Craftsmanship" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85;" />
+    </div>
+    <div class="story-accent-box">
+      <div class="num">15+</div>
+      <div class="label">Years of Craft</div>
+    </div>
+    <div class="story-badge">
+      <div class="b-num">98%</div>
+      <div class="b-label">Client Satisfaction</div>
+    </div>
+  </div>
+
+  <div class="story-content reveal reveal-delay-2">
+    <div class="section-label">Our Heritage</div>
+    <h2 class="section-title">Lighting as a<br><em>Timeless Art</em></h2>
+    <p class="section-desc" style="margin-bottom:1.5rem;">
+      V-Lights was born from a single conviction: that a room's character lives in its light. Founded by master artisan Viktor Harlan, our atelier blends Old World craftsmanship with contemporary vision.
+    </p>
+    <p class="section-desc">
+      Each chandelier passes through dozens of hands — glassblowers, metalworkers, and crystal specialists — before finding its home in your space. We don't make lighting. We make heirlooms.
+    </p>
+    <div class="story-stats">
+      <div class="stat-item">
+        <div class="num">2,400+</div>
+        <div class="lbl">Pieces Created</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">48</div>
+        <div class="lbl">Countries Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">12</div>
+        <div class="lbl">Design Awards</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FEATURES ═══ -->
+<section id="features">
+  <div class="features-intro reveal">
+    <div class="section-label">Why V-Lights</div>
+    <h2 class="section-title">The V-Lights <em>Difference</em></h2>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-num">01</div>
+      <div class="feature-title">Hand-Blown Crystal</div>
+      <div class="feature-desc">Every crystal is individually hand-blown by master artisans in our European partner studios, ensuring no two pieces are exactly alike.</div>
+    </div>
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-num">02</div>
+      <div class="feature-title">Custom Sizing</div>
+      <div class="feature-desc">From intimate dining rooms to grand hotel lobbies — we engineer each piece to your exact spatial dimensions and design specifications.</div>
+    </div>
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-num">03</div>
+      <div class="feature-title">Premium Finishes</div>
+      <div class="feature-desc">Choose from 24 signature finishes including aged brass, polished nickel, matte black, and our exclusive V-Gold plating.</div>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-num">04</div>
+      <div class="feature-title">White Glove Delivery</div>
+      <div class="feature-desc">Our certified installation team handles everything from arrival to final adjustment, with impeccable care for your property.</div>
+    </div>
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-num">05</div>
+      <div class="feature-title">Lifetime Guarantee</div>
+      <div class="feature-desc">We stand behind every piece with our lifetime structural warranty and a 5-year finish guarantee — craftsmanship you can rely on.</div>
+    </div>
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-num">06</div>
+      <div class="feature-title">Design Consultation</div>
+      <div class="feature-desc">Our in-house lighting designers offer complimentary consultations to help you find or create the perfect piece for your vision.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section id="process" style="background: var(--dark);">
+  <div class="reveal" style="text-align:center;">
+    <div class="section-label">The Process</div>
+    <h2 class="section-title">From <em>Vision</em> to Installation</h2>
+  </div>
+
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <div class="step-circle">1</div>
+      <div class="step-title">Consultation</div>
+      <div class="step-desc">Share your space details and design vision with our specialist during a complimentary session.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">2</div>
+      <div class="step-title">Design</div>
+      <div class="step-desc">We create detailed 3D renderings so you can visualize exactly how your piece will look in your space.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">3</div>
+      <div class="step-title">Crafting</div>
+      <div class="step-desc">Master artisans bring your chandelier to life over 8–12 weeks using the finest materials available.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">4</div>
+      <div class="step-title">Installation</div>
+      <div class="step-desc">Our certified team delivers and installs your piece with zero disruption and full electrical compliance.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section id="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-left reveal">
+      <div class="section-label">Client Stories</div>
+      <h2 class="section-title">Spaces <em>Transformed</em></h2>
+      <p class="section-desc">
+        Over 2,400 installations across the world's most discerning homes, hotels, and commercial spaces. Here's what our clients say.
+      </p>
+      <div class="review-stars" style="margin-top: 2rem;">★★★★★</div>
+      <p style="font-size:0.8rem; color: rgba(245,240,232,0.4);">4.97 / 5 — from 840 verified reviews</p>
+    </div>
+    <div class="testimonial-cards reveal reveal-delay-1">
+      <div class="t-card">
+        <p class="t-text">"The Grand Versailles piece in our dining room has become the centrepiece of our home. Guests are speechless the moment they walk in — absolutely breathtaking."</p>
+        <div class="t-author">
+          <div class="t-avatar">S</div>
+          <div>
+            <div class="t-name">Sophia Mercer</div>
+            <div class="t-location">London, UK</div>
+          </div>
+          <div class="t-rating">★★★★★</div>
+        </div>
+      </div>
+      <div class="t-card">
+        <p class="t-text">"V-Lights designed a custom 3-metre chandelier for our hotel lobby. The quality is extraordinary, and the installation team was impeccably professional."</p>
+        <div class="t-author">
+          <div class="t-avatar">J</div>
+          <div>
+            <div class="t-name">James Fontaine</div>
+            <div class="t-location">Paris, France</div>
+          </div>
+          <div class="t-rating">★★★★★</div>
+        </div>
+      </div>
+      <div class="t-card">
+        <p class="t-text">"The consultation process was smooth, the 3D preview was exact, and the final piece exceeded every expectation. Worth every penny — an investment for life."</p>
+        <div class="t-author">
+          <div class="t-avatar">A</div>
+          <div>
+            <div class="t-name">Aisha Al-Rashid</div>
+            <div class="t-location">Dubai, UAE</div>
+          </div>
+          <div class="t-rating">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA BANNER ═══ -->
+<section id="cta-banner">
+  <div class="reveal">
+    <div class="gold-divider" style="margin-bottom:3rem;"><span class="gold-divider-icon">◆ V-LIGHTS ◆</span></div>
+    <h2 class="cta-banner-title">
+      Begin Your<br><em>Lighting Journey</em>
+    </h2>
+    <p class="cta-banner-sub">Join our exclusive list for early collection previews, design inspiration, and private events.</p>
+    <form class="cta-form" onsubmit="handleSubmit(event)">
+      <input class="cta-input" type="email" placeholder="Your email address" required />
+      <button class="cta-submit" type="submit">Subscribe</button>
+    </form>
+    <p style="font-size:0.68rem; color: rgba(245,240,232,0.25); margin-top:1rem; letter-spacing:0.05em;">No spam, ever. Unsubscribe at any time.</p>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="footer-logo" href="#"><span>V</span>-LIGHTS</a>
+      <p>Handcrafted chandeliers and bespoke lighting solutions that transform every space into a masterpiece of light and elegance.</p>
+      <div class="social-links">
+        <a class="social-link" href="#" aria-label="Instagram">IG</a>
+        <a class="social-link" href="#" aria-label="Pinterest">PT</a>
+        <a class="social-link" href="#" aria-label="LinkedIn">LI</a>
+        <a class="social-link" href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Collections</h4>
+      <ul>
+        <li><a href="#">Chandeliers</a></li>
+        <li><a href="#">Wall Sconces</a></li>
+        <li><a href="#">Pendant Lights</a></li>
+        <li><a href="#">Ceiling Fixtures</a></li>
+        <li><a href="#">Outdoor Lighting</a></li>
+        <li><a href="#">Custom Bespoke</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Craftsmanship</a></li>
+        <li><a href="#">Showrooms</a></li>
+        <li><a href="#">Press & Awards</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Sustainability</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Free Consultation</a></li>
+        <li><a href="#">Installation Guide</a></li>
+        <li><a href="#">Care & Maintenance</a></li>
+        <li><a href="#">Warranty</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 V-Lights. All rights reserved. Crafted with passion.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Cookie Settings</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ─ NAV scroll effect ─ */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* ─ Hamburger (mobile) ─ */
+  function toggleMenu(el) {
+    el.classList.toggle('open');
+  }
+
+  /* ─ Scroll reveal ─ */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ─ CTA form ─ */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.cta-submit');
+    btn.textContent = 'Thank You ✓';
+    btn.style.background = '#4a7c59';
+    btn.style.color = '#fff';
+    e.target.querySelector('.cta-input').value = '';
+    setTimeout(() => {
+      btn.textContent = 'Subscribe';
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 3000);
+  }
+
+  /* ─ Smooth parallax on hero orbs ─ */
+  window.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    document.querySelectorAll('.orb').forEach((orb, i) => {
+      const factor = i === 0 ? 0.5 : 1;
+      orb.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+    });
+  });
+</script>
+</body>
+</html>
