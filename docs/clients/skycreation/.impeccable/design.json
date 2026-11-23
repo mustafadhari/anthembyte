@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-12T05:51:49.353492+00:00",
+  "title": "Design System: Sky Creation",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Studio Black",
+        "canonical": "#0d0d0d",
+        "tonalRamp": [
+          "#0d0d0d",
+          "#262624",
+          "#3a3a38",
+          "#4b4b48",
+          "#61615d",
+          "#9a9a96",
+          "#c9c9c5",
+          "#ededeb"
+        ]
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "Gallery Gray",
+        "canonical": "#f1f1ef",
+        "tonalRamp": [
+          "#232322",
+          "#3d3d3b",
+          "#5a5a57",
+          "#686864",
+          "#9d9d99",
+          "#c2c2be",
+          "#e2e2de",
+          "#f1f1ef"
+        ]
+      },
+      "bg-2": {
+        "role": "neutral",
+        "displayName": "Frame Gray",
+        "canonical": "#e7e7e4",
+        "tonalRamp": [
+          "#222221",
+          "#3b3b3a",
+          "#585856",
+          "#787875",
+          "#9b9b98",
+          "#bfbfbc",
+          "#dcdcd8",
+          "#e7e7e4"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#fbfbfa",
+        "tonalRamp": [
+          "#242424",
+          "#3e3e3d",
+          "#5b5b5a",
+          "#7b7b7a",
+          "#9f9f9e",
+          "#c5c5c4",
+          "#e9e9e8",
+          "#fbfbfa"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#262626",
+          "#404040",
+          "#5e5e5e",
+          "#7e7e7e",
+          "#a2a2a2",
+          "#c8c8c8",
+          "#ececec",
+          "#ffffff"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#4b4b48",
+        "tonalRamp": [
+          "#141413",
+          "#262624",
+          "#3a3a38",
+          "#4b4b48",
+          "#61615d",
+          "#9a9a96",
+          "#c9c9c5",
+          "#ededeb"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Stone",
+        "canonical": "#61615d",
+        "tonalRamp": [
+          "#141413",
+          "#262624",
+          "#3a3a38",
+          "#4b4b48",
+          "#61615d",
+          "#9a9a96",
+          "#c9c9c5",
+          "#ededeb"
+        ]
+      },
+      "band": {
+        "role": "neutral",
+        "displayName": "Band Slate",
+        "canonical": "#454543",
+        "tonalRamp": [
+          "#141413",
+          "#262625",
+          "#353534",
+          "#454543",
+          "#5c5c59",
+          "#8d8d88",
+          "#c4c4bf",
+          "#ececea"
+        ]
+      },
+      "band-ink": {
+        "role": "neutral",
+        "displayName": "Band Mist",
+        "canonical": "#d9d9d5",
+        "tonalRamp": [
+          "#1f1f1e",
+          "#383836",
+          "#535351",
+          "#72726f",
+          "#959591",
+          "#b9b9b5",
+          "#d9d9d5",
+          "#f0f0ee"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(13,13,13,.12)",
+        "tonalRamp": [
+          "rgba(13,13,13,.9)",
+          "rgba(13,13,13,.7)",
+          "rgba(13,13,13,.5)",
+          "rgba(13,13,13,.35)",
+          "rgba(13,13,13,.24)",
+          "rgba(13,13,13,.16)",
+          "rgba(13,13,13,.12)",
+          "rgba(13,13,13,.06)"
+        ]
+      },
+      "error": {
+        "role": "error",
+        "displayName": "Error Red",
+        "canonical": "#b3261e",
+        "tonalRamp": [
+          "#3d0c09",
+          "#601410",
+          "#8a1d17",
+          "#b3261e",
+          "#d3473e",
+          "#e97f78",
+          "#f5b8b3",
+          "#fce8e6"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Wordmark",
+        "purpose": "The SKY CREATION wordmark only: hero baseline and footer sign-off. Uppercase, width 100."
+      },
+      "headline": {
+        "displayName": "Section Head",
+        "purpose": "Every section head. Uppercase, Archivo width 78, balanced wrap."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Step names, service names, photo captions, form heading. Sentence case."
+      },
+      "numeral": {
+        "displayName": "Stat Numeral",
+        "purpose": "The About stats; count up once on scroll."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs, 40 to 46ch in intros."
+      },
+      "label-action": {
+        "displayName": "Action Label",
+        "purpose": "Buttons, text links, mobile bar actions. Uppercase."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Category pills, placeholder tags, contact-row labels, footer column heads. Uppercase."
+      }
+    },
+    "shadows": [
+      {
+        "name": "overlap",
+        "value": "0 20px 40px -24px rgba(0,0,0,.5)",
+        "purpose": "Small inset photo overlapping the large photo in the About collage."
+      },
+      {
+        "name": "card-lift",
+        "value": "0 30px 60px -40px rgba(0,0,0,.35)",
+        "purpose": "White lead form floating on Gallery Gray."
+      },
+      {
+        "name": "disc-lift",
+        "value": "0 2px 8px rgba(0,0,0,.08)",
+        "purpose": "Overlapping white disc in the nav call control."
+      },
+      {
+        "name": "hairline-edge",
+        "value": "inset 0 0 0 1px rgba(13,13,13,.12)",
+        "purpose": "Light buttons and light mobile-bar action edge."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-house",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "State transitions, 0.2 to 0.45s: button arrow rotate, link arrow nudge, list padding."
+      },
+      {
+        "name": "hero-entrance",
+        "value": "image scale 1.18 to 1 over 2.6s power2.out; frame clip inset(18% 10% 18% 10% round 14px) open over 2.2s power3.inOut; words yPercent 110 over 1.6s stagger .18 at .7s",
+        "purpose": "The single calm load entrance."
+      },
+      {
+        "name": "frame-reveal",
+        "value": "clipPath from inset(14% 8% 14% 8% round 14px), scrub 1.4, top 92% to top 45%; image scale 1.18 to 1, scrub 1.6",
+        "purpose": "Every photo frame as it scrolls in."
+      },
+      {
+        "name": "parallax",
+        "value": "yPercent -6 to 6, scrub 1.6",
+        "purpose": "Marked images drift inside their frame."
+      },
+      {
+        "name": "bar-draw",
+        "value": "scaleX 0 to 1, stagger .5, scrub 1.2",
+        "purpose": "Process step progress bar."
+      },
+      {
+        "name": "count-up",
+        "value": "0 to target over 2s power2.out, once",
+        "purpose": "About stats."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1100px"
+      },
+      {
+        "name": "tablet",
+        "value": "820px"
+      },
+      {
+        "name": "phone",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main call to action: black with a white arrow disc that turns on hover.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Book a free consultation<span class=\"ds-arr\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:14px;padding:8px 8px 8px 20px;min-height:48px;background:#0d0d0d;color:#fff;border-radius:8px;text-decoration:none;font-family:'Archivo','General Sans',system-ui,sans-serif;font-weight:500;font-size:.88rem;letter-spacing:.06em;text-transform:uppercase;border:0;cursor:pointer;transition:background .35s}.ds-btn .ds-arr{width:32px;height:32px;border-radius:50%;background:#fff;color:#0d0d0d;display:grid;place-items:center;transition:transform .45s cubic-bezier(.16,1,.3,1)}.ds-btn .ds-arr svg{width:15px;height:15px}.ds-btn:hover{background:#262624}.ds-btn:hover .ds-arr{transform:rotate(-45deg)}.ds-btn:focus-visible{outline:2px solid #0d0d0d;outline-offset:3px}"
+    },
+    {
+      "name": "Light Button",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "Secondary action on light grounds; inverted arrow disc.",
+      "html": "<a class=\"ds-btn-light\" href=\"#\">Call<span class=\"ds-arr\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a>",
+      "css": ".ds-btn-light{display:inline-flex;align-items:center;gap:14px;padding:8px 8px 8px 20px;min-height:48px;background:#fff;color:#0d0d0d;box-shadow:inset 0 0 0 1px rgba(13,13,13,.12);border-radius:8px;text-decoration:none;font-family:'Archivo','General Sans',system-ui,sans-serif;font-weight:500;font-size:.88rem;letter-spacing:.06em;text-transform:uppercase;transition:background .35s}.ds-btn-light .ds-arr{width:32px;height:32px;border-radius:50%;background:#0d0d0d;color:#fff;display:grid;place-items:center;transition:transform .45s cubic-bezier(.16,1,.3,1)}.ds-btn-light .ds-arr svg{width:15px;height:15px}.ds-btn-light:hover{background:#fbfbfa}.ds-btn-light:hover .ds-arr{transform:rotate(-45deg)}.ds-btn-light:focus-visible{outline:2px solid #0d0d0d;outline-offset:3px}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Underlined uppercase link with a diagonal arrow that nudges on hover.",
+      "html": "<a class=\"ds-tlink\" href=\"#\">How we work <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M7 17L17 7M9 7h8v8\"/></svg></a>",
+      "css": ".ds-tlink{display:inline-flex;align-items:center;gap:8px;color:#0d0d0d;font-family:'Archivo','General Sans',system-ui,sans-serif;font-weight:500;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border-bottom:1.5px solid #0d0d0d;padding-bottom:3px}.ds-tlink svg{width:13px;height:13px;transition:transform .35s cubic-bezier(.16,1,.3,1)}.ds-tlink:hover svg{transform:translate(2px,-2px)}.ds-tlink:focus-visible{outline:2px solid #0d0d0d;outline-offset:3px}"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Recessed gray field inside the white form; turns white with an ink border on focus.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-fn\">First name</label><input id=\"ds-fn\" placeholder=\"10-digit mobile\"/></div>",
+      "css": ".ds-field{display:flex;flex-direction:column;background:#fff;padding:16px;font-family:'General Sans',system-ui,sans-serif;color:#0d0d0d}.ds-field label{font-size:.82rem;font-weight:500;margin-bottom:6px}.ds-field input{font:inherit;background:#f1f1ef;border:1px solid transparent;border-radius:8px;padding:13px 14px;font-size:.98rem;outline:none;transition:border-color .25s,background .25s}.ds-field input:focus{border-color:#0d0d0d;background:#fff}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "Fixed top bar, solid gray with blur after scroll; links plus a call control.",
+      "html": "<header class=\"ds-nav\"><span class=\"ds-brand\">SKY CREATION</span><ul><li><a href=\"#\" aria-current=\"page\">Home</a></li><li><a href=\"#\">About</a></li><li><a href=\"#\">Work</a></li><li><a href=\"#\">Contact</a></li></ul><a class=\"ds-call\" href=\"#\"><small>Call us</small><b>+91 92217 86797</b></a></header>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:40px;padding:14px 32px;background:rgba(241,241,239,.88);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(13,13,13,.12);font-family:'General Sans',system-ui,sans-serif;color:#0d0d0d}.ds-brand{font-family:'Archivo','General Sans',system-ui,sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.02em}.ds-nav ul{display:flex;gap:28px;list-style:none;margin:0 auto 0 0;padding:0}.ds-nav ul a{text-decoration:none;font-size:.92rem;color:#4b4b48;transition:color .2s}.ds-nav ul a:hover,.ds-nav ul a[aria-current]{color:#0d0d0d}.ds-call{text-decoration:none;color:inherit}.ds-call small{display:block;font-size:.72rem;color:#61615d}.ds-call b{font-weight:600;font-size:.88rem}.ds-nav a:focus-visible{outline:2px solid #0d0d0d;outline-offset:3px}"
+    },
+    {
+      "name": "Category Pill",
+      "kind": "chip",
+      "refersTo": "tag-pill",
+      "description": "Project category on a photo (white) or in a list (outlined).",
+      "html": "<span class=\"ds-pill\">Residential</span> <span class=\"ds-pill ds-pill--line\">Commercial</span>",
+      "css": ".ds-pill{display:inline-block;font-family:'General Sans',system-ui,sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;background:#fff;color:#0d0d0d;padding:5px 10px;border-radius:30px}.ds-pill--line{background:transparent;color:#4b4b48;border:1px solid rgba(13,13,13,.12);padding:3px 10px}"
+    },
+    {
+      "name": "Photo Tile",
+      "kind": "card",
+      "refersTo": "photo-frame",
+      "description": "Large rounded photo frame with a bottom gradient and white caption.",
+      "html": "<figure class=\"ds-tile\"><div class=\"ds-img\"></div><figcaption><b>Master bedroom</b><span>Residential</span></figcaption></figure>",
+      "css": ".ds-tile{position:relative;margin:0;border-radius:14px;overflow:hidden;background:#e7e7e4;aspect-ratio:4/3;width:360px}.ds-tile .ds-img{position:absolute;inset:0;background:linear-gradient(135deg,#8a7a66,#3f3a34)}.ds-tile::after{content:'';position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,rgba(0,0,0,.55))}.ds-tile figcaption{position:absolute;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;color:#fff;z-index:2}.ds-tile b{font-family:'Archivo','General Sans',system-ui,sans-serif;font-weight:600;font-size:1.2rem;line-height:1.1}.ds-tile span{font-family:'General Sans',system-ui,sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;background:#fff;color:#0d0d0d;padding:5px 10px;border-radius:30px}"
+    },
+    {
+      "name": "Review Card",
+      "kind": "card",
+      "refersTo": "review-card",
+      "description": "Google review on the Band Slate ground.",
+      "html": "<div class=\"ds-rwrap\"><figure class=\"ds-rcard\"><blockquote>One of the best interior designer with lots of patience and with best designs.</blockquote><cite><i>S</i><span><b>Sushil Wasekar</b><small>Google review</small></span></cite></figure></div>",
+      "css": ".ds-rwrap{background:#454543;padding:24px}.ds-rcard{margin:0;background:rgba(255,255,255,.06);color:#f1f1ef;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:28px;max-width:360px;font-family:'General Sans',system-ui,sans-serif}.ds-rcard blockquote{margin:0;font-size:1.12rem;line-height:1.5}.ds-rcard cite{font-style:normal;display:flex;align-items:center;gap:12px}.ds-rcard cite i{width:40px;height:40px;border-radius:50%;background:#5c5c59;display:grid;place-items:center;font-style:normal;font-weight:600}.ds-rcard cite b{display:block;font-weight:600;font-size:.95rem}.ds-rcard cite small{display:block;color:#c4c4bf;font-size:.8rem}"
+    },
+    {
+      "name": "Angled Band",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "The parallelogram dark band that cuts into the hero, carrying the promise and a scroll-driven project marquee.",
+      "html": "<div class=\"ds-band\"><p>Where design meets<br/>execution, under one roof</p><span>PropSolution <small>Turbhe</small></span></div>",
+      "css": ".ds-band{background:#454543;color:#d9d9d5;clip-path:polygon(0 0,100% 30%,100% 100%,0 70%);padding:64px 32px;display:flex;gap:40px;align-items:center;font-family:'General Sans',system-ui,sans-serif}.ds-band p{margin:0;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;line-height:1.5}.ds-band span{font-family:'Archivo','General Sans',system-ui,sans-serif;font-weight:500;font-size:1.05rem;color:#f1f1ef}.ds-band small{font-family:'General Sans',system-ui,sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#c4c4bf}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Studio Portfolio",
+    "overview": "Sky Creation reads like an architecture studio's portfolio: a quiet light-gray ground, very large black uppercase type, and finished rooms shown big inside softly rounded frames. The world follows one source, the user-pinned reference at `/Users/mustafadhariwala/demo2/.impeccable/refs/user-reference.png` (an architecture-studio landing page: light gray, a bold black wordmark crossing the hero image, large rounded photos, an angled dark band). The one adaptation: interiors have no cutout silhouette, so the reference's cut-out building becomes a rounded photo frame, and the wordmark flips from black to white where it passes over the photograph.\n\nThe photographs carry the page. Everything else (gray neutrals, one black, thin hairlines) steps back so the rooms read as the proof. Density is generous: sections breathe on 88 to 150px of vertical padding, lists are hairline-ruled rather than boxed, and there is no accent hue at all. Motion is slow and continuous, tied to scroll, never a show of its own.\n\nTwo earlier directions (a shop-drawing concept and a darkroom concept) were rejected by the user as gimmicky. This brand does not wear concept costumes.",
+    "keyCharacteristics": [
+      "Achromatic palette: warm-neutral grays plus one near-black; no accent color.",
+      "Archivo uppercase display at two widths (normal for the wordmark, trimmed to 78 for section heads) over General Sans body.",
+      "Large photos in 14px rounded frames; photos dominate every section they appear in.",
+      "An angled dark gray band is the one geometric gesture.",
+      "Slow, scroll-scrubbed motion; content is visible without JavaScript."
+    ],
+    "rules": [
+      {
+        "name": "The Rooms Bring The Color Rule",
+        "body": "The interface stays achromatic. Wood, marble and lighting in the photographs are the only color on the page; never add a UI accent hue.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Dark Grounds Rule",
+        "body": "Dark surfaces appear in exactly three roles: the angled band, the reviews section (both Band Slate), and the footer (Studio Black). The page ground is always Gallery Gray; there is no dark mode.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Widths Rule",
+        "body": "Archivo's width axis has two settings: 100 for the wordmark, 78 for section heads. Nothing narrower; the 78 cut is a trim, not a compressed poster face.",
+        "section": "typography"
+      },
+      {
+        "name": "The Uppercase Is For Naming Rule",
+        "body": "Uppercase belongs to the wordmark, section heads, buttons and small category labels. Titles, body and quotes stay sentence case.",
+        "section": "typography"
+      },
+      {
+        "name": "The Only When Overlapping Rule",
+        "body": "A shadow is allowed only where one surface physically overlaps another. Section blocks, list rows and photo tiles in a grid stay flat.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Frame Not Box Rule",
+        "body": "Photos are always large and always in a 14px frame with the image filling it edge to edge (object-fit cover). No borders, mats or small thumbnails.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** let a real, finished room fill the largest area of any section it appears in, framed at 14px.",
+      "**Do** keep the UI achromatic: Gallery Gray, Paper, Band Slate, Studio Black and white only.",
+      "**Do** set section heads in Archivo 800 uppercase at width 78, and reserve width 100 at display size for the wordmark.",
+      "**Do** separate content with hairlines (rgba(13,13,13,.12)) and ground changes rather than boxes.",
+      "**Do** keep motion slow and scrubbed to scroll (scrub 1.2 to 1.6, one ~2.5s hero entrance) and leave all content visible by default.",
+      "**Do** keep a call or WhatsApp action reachable in every viewport (the fixed mobile bar below 820px).",
+      "**Do** label any stock or missing image visibly as a placeholder until the client's photo replaces it."
+    ],
+    "donts": [
+      "**Don't** dress the brand in a concept costume (shop drawings, blueprint lines, darkroom or film devices); both were rejected by the user as gimmicky.",
+      "**Don't** use a warm amber accent or a dark, techy palette as the page ground.",
+      "**Don't** use compressed poster faces or marker/handwritten display faces; Archivo at width 78 is the narrowest the type goes.",
+      "**Don't** show photos small or boxed (thumbnails, bordered mats, tiny grids); rooms are shown large.",
+      "**Don't** fade content in from opacity 0 on scroll.",
+      "**Don't** add a shadow to anything that is not overlapping another surface.",
+      "**Don't** add small uppercase eyebrow labels above section heads; the reference has them, this build does not, and section heads stand alone."
+    ]
+  }
+}
