@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Avasa Design: custom furniture made in Chennai (scroll)</title>
+<meta name="description" content="Chairs, beds, wardrobes, tables, sofas and cane furniture built to your size, wood colour and fabric by Avasa Design in Chennai.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Avasa Design: custom furniture made in Chennai">
+<meta property="og:description" content="Furniture built to your size, wood colour and fabric, in Avasa Design's workshop in Chennai.">
+<meta property="og:image" content="share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#d9a03a">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300..700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/chair-honey.webp">
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('motion','intro');setTimeout(()=>{if(!window.gsap)document.documentElement.classList.remove('motion','intro')},2500)}</script>
+<style>
+:root {
+  --mustard: #d9a03a;
+  --mustard-soft: #f0d29c;
+  --cream: #fcf2ea;
+  --surface: #f2e4d7;
+  --walnut: #5b1d0a;
+  --ink: #2b170e;
+  --muted: #76604f;
+  --line: rgba(43, 23, 14, .12);
+  --display: "DM Serif Display", Georgia, serif;
+  --text: "Outfit", system-ui, sans-serif;
+  --pad: clamp(20px, 4.4vw, 72px);
+  --r-xl: clamp(24px, 2.6vw, 40px);
+  --r-lg: clamp(18px, 1.8vw, 28px);
+  --ease: cubic-bezier(.23, 1, .32, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--mustard); color: var(--ink); font: 400 17px/1.6 var(--text); padding: clamp(8px, 1.4vw, 20px); }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+::selection { background: var(--walnut); color: var(--cream); }
+:focus-visible { outline: 2px solid var(--walnut); outline-offset: 3px; border-radius: 6px; }
+.sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: 16px; top: -60px; background: var(--walnut); color: var(--cream); padding: 10px 16px; border-radius: 999px; z-index: 20; }
+.skip:focus { top: 16px; }
+
+/* the sheet: the whole site sits on one cream card inside the mustard frame */
+.sheet { background: var(--cream); border-radius: var(--r-xl); overflow: clip; max-width: 1680px; margin: 0 auto; }
+.wrap { padding-inline: var(--pad); }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 12px; height: 52px; padding: 0 26px; border-radius: 999px; border: 1px solid transparent; font: 500 16px/1 var(--text); text-decoration: none; cursor: pointer; transition: transform 160ms var(--ease), background-color 200ms ease, color 200ms ease; }
+.btn:active { transform: scale(.97); }
+.btn--dark { background: var(--walnut); color: var(--cream); }
+.btn--dark:hover { background: var(--ink); }
+.btn--line { border-color: rgba(43, 23, 14, .35); color: var(--ink); background: transparent; }
+.btn--line:hover { background: var(--ink); color: var(--cream); }
+.btn svg { width: 14px; height: 14px; transition: transform 200ms var(--ease); }
+.btn:hover svg { transform: translate(2px, -2px); }
+.round-arrow { width: 46px; height: 46px; border-radius: 50%; background: #fff; display: grid; place-items: center; flex: none; transition: transform 200ms var(--ease), background-color 200ms ease; }
+.round-arrow svg { width: 16px; height: 16px; }
+.pill { display: inline-block; padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .8); background: rgba(255, 255, 255, .55); font: 400 14px/1.2 var(--text); color: var(--ink); backdrop-filter: blur(6px); }
+
+/* nav */
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: clamp(18px, 2.2vw, 30px); }
+.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 700 18px/1 var(--text); letter-spacing: .04em; text-transform: uppercase; }
+.logo img { width: 30px; height: 30px; }
+.nav__links { display: flex; align-items: center; gap: 0; list-style: none; margin: 0; padding: 0; }
+.nav__links li { display: flex; align-items: center; }
+.nav__links li + li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--ink); margin-inline: clamp(14px, 2vw, 30px); }
+.nav__links a { text-decoration: none; font: 400 17px/1 var(--text); letter-spacing: .06em; text-transform: uppercase; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; padding-bottom: 4px; transition: background-size 250ms var(--ease); }
+.nav__links a:hover { background-size: 100% 1px; }
+.nav__cta { display: none; height: 44px; padding: 0 18px; font-size: 15px; white-space: nowrap; }
+
+/* hero: the name set huge, the frame under it, the chair standing up out of the frame into the letters */
+.hero { position: relative; padding-bottom: clamp(24px, 3vw, 40px); }
+.hero h1 { margin: 0; }
+.hero__word { display: block; font: 400 clamp(72px, 29vw, 480px)/.8 var(--display); letter-spacing: -.035em; color: var(--walnut); text-align: center; margin-top: clamp(4px, 1vw, 16px); position: relative; z-index: 1; user-select: none; }
+.hero__stage { position: relative; z-index: 2; margin-top: clamp(-10px, -0.6vw, -4px); }
+.hero__frame { position: relative; height: clamp(380px, min(44vw, 100svh - 23vw - 140px), 700px); border-radius: var(--r-xl); background: radial-gradient(120% 90% at 50% 100%, #e8b864 0%, var(--mustard-soft) 55%, #f6e0bb 100%); overflow: hidden; }
+.hero__frame::before { content: ""; position: absolute; inset: 0; background: url("img/cane-weave-wide.webp") center / 520px auto; mix-blend-mode: multiply; opacity: .1; }
+.hero__frame::after { content: ""; position: absolute; left: 50%; bottom: 7%; width: min(560px, 46%); height: 46px; transform: translateX(-50%); background: radial-gradient(closest-side, rgba(70, 30, 8, .45), transparent); filter: blur(4px); }
+.hero__chair { position: absolute; z-index: 3; left: 50%; bottom: 8%; height: 118%; width: auto; max-width: none; transform: translateX(-50%); pointer-events: none; transition: opacity 260ms ease, transform 420ms var(--ease); }
+.hero__chair.is-swapping { opacity: 0; transform: translateX(-50%) translateY(10px) scale(.98); }
+.hero__note { position: absolute; z-index: 6; left: clamp(20px, 9%, 170px); top: 30%; max-width: 330px; margin: 0; padding: 18px 22px; border-radius: 16px; background: rgba(255, 255, 255, .38); border: 1px solid rgba(255, 255, 255, .7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); font: 400 clamp(16px, 1.3vw, 20px)/1.45 var(--text); color: var(--ink); }
+.hero__thumbs { position: absolute; z-index: 4; left: clamp(16px, 3.4vw, 60px); bottom: clamp(16px, 3vw, 44px); display: flex; gap: 12px; margin: 0; padding: 0; border: 0; }
+.hero__thumbs button { width: clamp(72px, 7vw, 112px); aspect-ratio: 1.15; padding: 8px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, .75); background: rgba(255, 255, 255, .35); backdrop-filter: blur(8px); cursor: pointer; transition: transform 160ms var(--ease), background-color 200ms ease, border-color 200ms ease; }
+.hero__thumbs button img { width: 100%; height: 100%; object-fit: contain; }
+.hero__thumbs button:hover { background: rgba(255, 255, 255, .6); }
+.hero__thumbs button:active { transform: scale(.96); }
+.hero__thumbs button[aria-pressed="true"] { border-color: var(--walnut); background: rgba(255, 255, 255, .7); }
+/* the round badge, sitting in a cream notch cut out of the frame's corner */
+.badge { position: absolute; z-index: 5; right: clamp(-8px, -0.4vw, -4px); bottom: clamp(-8px, -0.4vw, -4px); width: clamp(132px, 13vw, 210px); aspect-ratio: 1; border-radius: 50%; box-shadow: 0 0 0 clamp(10px, 1.1vw, 18px) var(--cream); background: var(--walnut); display: grid; place-items: center; text-decoration: none; }
+.badge__ring { position: absolute; inset: 0; width: 100%; height: 100%; transition: transform 1200ms var(--ease); }
+.badge:hover .badge__ring { transform: rotate(120deg); }
+.badge__ring text { font: 600 15.5px var(--text); letter-spacing: .18em; fill: var(--cream); text-transform: uppercase; }
+.badge__core { width: 46%; aspect-ratio: 1; border-radius: 50%; background: #fff; display: grid; place-items: center; transition: transform 200ms var(--ease); }
+.badge:active .badge__core { transform: scale(.94); }
+.badge__core svg { width: 34%; height: 34%; }
+
+/* section rhythm */
+.section { padding-block: clamp(64px, 8vw, 128px); }
+.head { display: grid; grid-template-columns: 1.25fr 1fr; gap: 24px 64px; align-items: end; margin-bottom: clamp(32px, 4vw, 56px); }
+.head h2 { margin: 0; font: 400 clamp(34px, 3.6vw, 58px)/1.08 var(--display); letter-spacing: -.02em; text-wrap: balance; }
+.head__side { display: grid; gap: 20px; justify-items: start; }
+.head__side p { margin: 0; color: var(--muted); max-width: 42ch; }
+.eyebrow { font: 500 14px/1 var(--text); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; }
+
+/* range: a bento of the client's pieces, each a card that leads to the quote form */
+.bento { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: clamp(220px, 19vw, 300px); gap: 16px; }
+.card { position: relative; display: block; border-radius: var(--r-lg); background: var(--surface); overflow: hidden; text-decoration: none; color: var(--ink); transition: transform 240ms var(--ease); }
+.card img { position: absolute; inset: 10% 8% 18%; width: 84%; height: 72%; object-fit: contain; mix-blend-mode: multiply; transition: transform 500ms var(--ease); }
+.card .pill { position: absolute; top: 16px; left: 16px; }
+.card .round-arrow { position: absolute; top: 14px; right: 14px; }
+.card__name { position: absolute; left: 20px; right: 20px; bottom: 18px; margin: 0; font: 500 clamp(16px, 1.25vw, 20px)/1.2 var(--text); letter-spacing: .05em; text-transform: uppercase; }
+.card--big { grid-column: span 2; grid-row: span 2; }
+.card--big img { inset: 10% 12% 30%; width: 76%; height: 60%; }
+.card--big .card__name { font: 500 clamp(28px, 3vw, 46px)/1.02 var(--text); letter-spacing: .01em; left: 28px; bottom: 26px; max-width: 12ch; }
+@media (hover: hover) and (pointer: fine) {
+  .card:hover { transform: translateY(-3px); }
+  .card:hover img { transform: scale(1.04); }
+  .card:hover .round-arrow { transform: rotate(45deg); }
+}
+
+/* cane: a big photo card beside a list of the line */
+.split { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(24px, 4vw, 72px); align-items: stretch; }
+.photo-card { position: relative; border-radius: var(--r-xl); overflow: hidden; min-height: 560px; background: #c98d3a url("img/cane-weave-wide.webp") center / cover; }
+.photo-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(91, 29, 10, 0) 45%, rgba(91, 29, 10, .55) 100%); }
+.photo-card img { position: absolute; left: 50%; top: 46%; width: min(64%, 440px); transform: translate(-50%, -50%); filter: drop-shadow(0 30px 30px rgba(60, 20, 0, .35)); }
+.photo-card .pill { position: absolute; top: 22px; left: 22px; }
+.photo-card__name { position: absolute; left: 28px; bottom: 24px; margin: 0; color: var(--cream); font: 500 clamp(24px, 2.4vw, 36px)/1.1 var(--text); letter-spacing: .02em; text-transform: uppercase; }
+.list-side { display: flex; flex-direction: column; justify-content: center; }
+.list-side h2 { margin: 0 0 18px; font: 400 clamp(34px, 3.6vw, 58px)/1.08 var(--display); letter-spacing: -.02em; }
+.list-side > p { margin: 0 0 28px; color: var(--muted); max-width: 46ch; }
+.rows { list-style: none; margin: 0 0 32px; padding: 0; }
+.rows a { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 6px 16px; padding: 20px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.rows li:first-child a { border-top: 1px solid var(--line); }
+.rows strong { font: 500 clamp(19px, 1.5vw, 23px)/1.2 var(--text); }
+.rows .stack { grid-column: 1; display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 15px; }
+.rows .stack span:first-child { display: flex; }
+.rows .stack img { width: 34px; height: 34px; border-radius: 50%; object-fit: contain; background: var(--surface); border: 2px solid var(--cream); margin-left: -8px; padding: 3px; }
+.rows .stack img:first-child { margin-left: 0; }
+.rows .chev { grid-column: 2; grid-row: 1 / span 2; width: 22px; height: 22px; transition: transform 200ms var(--ease); }
+.rows a:hover .chev { transform: translateX(4px); }
+
+/* workshop: steps on the left, a collage of the shop floor on the right */
+.ws { display: grid; grid-template-columns: .9fr 1.4fr; gap: clamp(24px, 4vw, 72px); align-items: end; }
+.ws h2 { margin: 0 0 18px; font: 400 clamp(34px, 3.6vw, 58px)/1.08 var(--display); letter-spacing: -.02em; }
+.ws > div > p { color: var(--muted); margin: 0 0 28px; max-width: 42ch; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.steps li { display: grid; grid-template-columns: 52px 1fr; padding: 18px 0; border-top: 1px solid var(--line); }
+.steps b { font: 400 26px/1 var(--display); color: var(--walnut); }
+.collage { display: grid; grid-template-columns: .8fr 1.3fr .8fr; gap: 16px; align-items: end; }
+.collage figure { margin: 0; border-radius: var(--r-lg); overflow: hidden; position: relative; }
+.collage img { width: 100%; height: 100%; object-fit: cover; }
+.collage .c1 { aspect-ratio: 4 / 5; }
+.collage .c2 { aspect-ratio: 3 / 4.3; }
+.collage .c3 { aspect-ratio: 3 / 4; }
+.collage .tag { position: absolute; left: 14px; right: 14px; bottom: 14px; background: #fff; border-radius: 16px 16px 16px 4px; padding: 16px 18px; }
+.collage .tag b { display: block; font: 400 24px/1 var(--display); color: var(--walnut); margin-bottom: 10px; }
+.collage .tag span { font-size: 15px; line-height: 1.4; color: var(--muted); }
+
+/* children's band in the frame's mustard */
+.band { background: var(--mustard); border-radius: var(--r-xl); padding: clamp(32px, 4.4vw, 72px); color: var(--walnut); }
+.band .head h2 { color: var(--walnut); }
+.band .head__side p { color: #4a2410; }
+.trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.trio figure { margin: 0; aspect-ratio: 4 / 5; border-radius: var(--r-lg); overflow: hidden; }
+.trio img { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms var(--ease); }
+@media (hover: hover) and (pointer: fine) { .trio figure:hover img { transform: scale(1.03); } }
+
+/* quote: a big walnut card with the form card sitting on it */
+.quote { position: relative; display: grid; grid-template-columns: 1fr minmax(0, 520px); gap: 32px; align-items: stretch; border-radius: var(--r-xl); overflow: hidden; background: var(--walnut); padding: clamp(28px, 4vw, 56px); color: var(--cream); isolation: isolate; }
+.quote::before { content: ""; position: absolute; inset: 0; z-index: -1; background: url("img/cane-weave-wide.webp") center / 700px auto; opacity: .1; mix-blend-mode: screen; }
+.quote__say { display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-height: 100%; }
+.quote__say img { width: clamp(64px, 7vw, 110px); height: auto; }
+.quote__say h2 { margin: 0; font: 400 clamp(44px, 5.4vw, 92px)/.98 var(--text); letter-spacing: -.01em; text-transform: uppercase; }
+.quote__say p { margin: 0; max-width: 40ch; color: rgba(252, 242, 234, .8); }
+.quote__say a { color: var(--cream); }
+.form { background: #fff; color: var(--ink); border-radius: var(--r-lg); padding: clamp(24px, 2.6vw, 40px); display: grid; gap: 18px; }
+.form h3 { margin: 0; font: 400 clamp(28px, 2.4vw, 36px)/1.1 var(--display); }
+.form > p { margin: -8px 0 0; color: var(--muted); font-size: 15px; }
+.field { display: grid; gap: 8px; }
+.field label, .field legend { font: 500 15px/1.2 var(--text); padding: 0; }
+.field input, .field textarea { width: 100%; font: 400 16px/1.4 var(--text); color: var(--ink); padding: 14px 18px; border: 1px solid rgba(43, 23, 14, .2); border-radius: 18px; background: #fff; transition: border-color 160ms ease; }
+.field input { height: 52px; border-radius: 999px; }
+.field textarea { min-height: 96px; resize: vertical; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--walnut); box-shadow: 0 0 0 3px rgba(91, 29, 10, .12); }
+.field [aria-invalid="true"] { border-color: #b4321a; }
+.err { margin: 0; color: #b4321a; font-size: 14px; }
+.chips { border: 0; margin: 0; padding: 0; display: grid; gap: 10px; }
+.chips div { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips input { position: absolute; opacity: 0; pointer-events: none; }
+.chips label { padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(43, 23, 14, .2); font: 400 15px/1 var(--text); cursor: pointer; transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms var(--ease); }
+.chips label:active { transform: scale(.97); }
+.chips input:checked + label { background: var(--mustard); border-color: var(--mustard); color: var(--ink); }
+.chips input:focus-visible + label { outline: 2px solid var(--walnut); outline-offset: 2px; }
+.form .btn { width: 100%; justify-content: center; height: 56px; }
+.form__alt { margin: 0; font-size: 15px; color: var(--muted); text-align: center; }
+.form__status { margin: 0; font-size: 15px; color: var(--walnut); min-height: 1.4em; text-align: center; }
+
+/* footer */
+.footer { padding-block: clamp(56px, 6vw, 96px) clamp(24px, 3vw, 40px); }
+.footer__word { margin: 0 0 clamp(40px, 5vw, 72px); font: 400 clamp(64px, 14.8vw, 250px)/.86 var(--display); letter-spacing: -.03em; color: var(--walnut); }
+.footer__cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; padding-top: 32px; border-top: 1px solid var(--line); }
+.footer__cols h3 { margin: 0 0 12px; font: 500 14px/1 var(--text); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.footer__cols p, .footer__cols ul { margin: 0; padding: 0; list-style: none; }
+.footer__cols li + li { margin-top: 6px; }
+.footer__cols a { text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size 250ms var(--ease); }
+.footer__cols a:hover { background-size: 100% 1px; }
+.legal { margin-top: 48px; display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 14px; }
+
+/* tablet */
+@media (max-width: 1023px) {
+  .nav__links { display: none; }
+  .nav__cta { display: inline-flex; }
+  .head, .split, .ws { grid-template-columns: 1fr; }
+  .head { align-items: start; }
+  .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 240px; }
+  .quote { grid-template-columns: 1fr; }
+  .footer__cols { grid-template-columns: 1fr 1fr; }
+  .hero__note { top: 8%; max-width: 280px; }
+}
+/* phone */
+@media (max-width: 639px) {
+  body { font-size: 16px; }
+  .logo { font-size: 15px; }
+  .hero__frame { height: 108vw; max-height: 520px; }
+  .hero__chair { height: 84%; bottom: 17%; }
+  .hero__note { position: static; max-width: none; margin: 16px 0 0; background: var(--surface); border-color: transparent; backdrop-filter: none; }
+  .hero__thumbs { gap: 8px; }
+  .hero__thumbs button { width: 64px; padding: 5px; }
+  .badge { width: 104px; bottom: auto; top: calc(min(108vw, 520px) - 96px); right: -4px; }
+  .hero__chair { bottom: auto; top: calc(min(108vw, 520px) * .83); transform: translate(-50%, -100%); }
+  .hero__chair.is-swapping { transform: translate(-50%, -100%) translateY(10px) scale(.98); }
+  .hero__chair { height: calc(min(108vw, 520px) * .9); }
+  .badge__ring text { font-size: 17px; }
+  .bento { grid-auto-rows: 190px; gap: 10px; }
+  .card--big { grid-row: span 2; }
+  .card .pill { display: none; }
+  .card .round-arrow { width: 36px; height: 36px; top: 10px; right: 10px; }
+  .card__name { left: 14px; bottom: 12px; font-size: 14px; }
+  .card--big .card__name { font-size: 28px; left: 18px; bottom: 18px; }
+  .photo-card { min-height: 440px; }
+  .photo-card img { width: 66%; top: 44%; }
+  .collage { grid-template-columns: 1fr 1fr; }
+  .collage .c2 { grid-column: 1 / -1; grid-row: 1; aspect-ratio: 4 / 4.4; }
+  .trio { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .trio figure:first-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+  .footer__cols { grid-template-columns: 1fr; }
+  .legal { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0ms !important; }
+}
+
+/* ---------- Design B: the scroll layer ---------- */
+.hero__lift { position: absolute; inset: 0; z-index: 3; pointer-events: none; transform-origin: 50% 90%; }
+.hero__word { white-space: nowrap; }
+.hero__word .l { display: inline-block; }
+.intro .hero__word .l, .intro .hero__lift, .intro .hero__note, .intro .hero__thumbs, .intro .badge { opacity: 0; }
+
+.marquee { border-block: 1px solid var(--line); padding-block: clamp(16px, 2vw, 28px); overflow: hidden; margin-top: clamp(8px, 2vw, 32px); }
+.marquee__track { display: flex; width: max-content; }
+.marquee__row { display: flex; align-items: center; gap: clamp(24px, 3vw, 48px); padding-right: clamp(24px, 3vw, 48px); }
+.marquee__row span { font: 400 clamp(40px, 5vw, 84px)/1.05 var(--display); color: var(--walnut); white-space: nowrap; letter-spacing: -.02em; }
+.marquee__row img { width: clamp(28px, 3vw, 46px); height: auto; }
+
+.photo-card { background-size: auto 135%; }
+
+.ws { grid-template-columns: .85fr 1.15fr; align-items: center; }
+.motion .steps li { opacity: .32; transition: opacity 300ms ease; }
+.motion .steps li.is-on { opacity: 1; }
+.ws__bar { height: 2px; background: var(--line); margin-top: 28px; border-radius: 2px; overflow: hidden; }
+.ws__bar span { display: block; height: 100%; background: var(--walnut); transform-origin: left; transform: scaleX(.333); }
+.ws__stage { position: relative; height: min(76vh, 720px); }
+.ws__shot { position: absolute; inset: 0; margin: 0; border-radius: var(--r-xl); overflow: hidden; }
+.ws__shot img { width: 100%; height: 100%; object-fit: cover; }
+.ws__stage .tag { position: absolute; left: 20px; bottom: 20px; z-index: 3; max-width: 290px; background: #fff; border-radius: 16px 16px 16px 4px; padding: 16px 18px; }
+.ws__stage .tag b { display: block; font: 400 24px/1 var(--display); color: var(--walnut); margin-bottom: 10px; }
+.ws__stage .tag span { font-size: 15px; line-height: 1.4; color: var(--muted); }
+@media (min-width: 1024px) { .ws-sec { min-height: 100vh; display: flex; align-items: center; padding-block: 48px; } .ws-sec > .ws { width: 100%; } }
+
+.kids-sec { padding-top: 0; }
+.band { overflow: hidden; }
+.kids-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.kids-track::-webkit-scrollbar { display: none; }
+.kids-track figure { margin: 0; flex: 0 0 clamp(240px, 23vw, 360px); aspect-ratio: 4 / 5; border-radius: var(--r-lg); overflow: hidden; scroll-snap-align: start; }
+.kids-track img { width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 768px) { .motion .kids-track { overflow: visible; } }
+
+.quote__say h2 .line { display: block; overflow: hidden; padding-bottom: .04em; }
+.quote__say h2 .line > span { display: block; }
+.footer__word { overflow: hidden; padding-bottom: .14em; white-space: nowrap; }
+.footer__word .l { display: inline-block; }
+.footer__word .wd { white-space: nowrap; }
+#range-h .w { display: inline; }
+
+@media (max-width: 1023px) {
+  .ws { grid-template-columns: 1fr; }
+  .ws__stage { height: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .ws__shot { position: relative; inset: auto; aspect-ratio: 4 / 5; border-radius: var(--r-lg); }
+  .ws__shot:nth-of-type(3) { grid-column: 1 / -1; grid-row: 1; aspect-ratio: 4 / 3; }
+  .ws__stage .tag, .ws__bar { display: none; }
+  .motion .steps li { opacity: 1; }
+}
+@media (max-width: 639px) { .kids-track figure { flex-basis: 64vw; } .footer__word { white-space: normal; } }
+
+/* cut-outs: the client's pieces lifted off their photographs and set on warm tiles */
+.cut { background: var(--surface); }
+.cut > img.fit-contain { object-fit: contain; padding: 9%; filter: drop-shadow(0 18px 16px rgba(60, 25, 5, .2)); }
+.cut > img.fit-bleed { object-fit: cover; object-position: 50% 100%; }
+.kid { background: #f7e4bd; }
+.kid > img { object-fit: contain !important; padding: 11%; filter: drop-shadow(0 16px 14px rgba(90, 45, 5, .22)); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sheet">
+  <header class="wrap nav">
+    <a class="logo" href="#main"><img src="img/avasa-mark.png" alt="" width="30" height="30">Avasa·Design</a>
+    <nav aria-label="Main">
+      <ul class="nav__links">
+        <li><a href="#range">Range</a></li>
+        <li><a href="#cane">Cane</a></li>
+        <li><a href="#workshop">Workshop</a></li>
+        <li><a href="#kids">Children</a></li>
+        <li><a href="#quote">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--dark nav__cta" href="#quote">Get a quote</a>
+  </header>
+
+  <main id="main">
+    <section class="wrap hero" aria-labelledby="hero-h">
+      <h1 id="hero-h"><span class="hero__word" aria-hidden="true"><span class="l">A</span><span class="l">V</span><span class="l">A</span><span class="l">S</span><span class="l">A</span></span><span class="sr">Avasa Design: custom furniture made in Chennai</span></h1>
+      <div class="hero__stage">
+        <div class="hero__frame">
+          <fieldset class="hero__thumbs">
+            <legend class="sr">See another chair</legend>
+            <button type="button" aria-pressed="true" data-chair="img/chair-honey.webp" data-alt="Cane-back armchair in honey-coloured wood with a turquoise leather seat"><img src="img/chair-honey-thumb.webp" alt="Honey wood armchair" width="186" height="240"></button>
+            <button type="button" aria-pressed="false" data-chair="img/chair-oval.webp" data-alt="Dining chair with an oval cane back and a blue upholstered seat"><img src="img/chair-oval-thumb.webp" alt="Oval-back cane chair" width="188" height="240"></button>
+            <button type="button" aria-pressed="false" data-chair="img/chair-tub.webp" data-alt="Cane tub chair in dark wood with an orange seat"><img src="img/chair-tub-thumb.webp" alt="Cane tub chair" width="185" height="240"></button>
+          </fieldset>
+        </div>
+        <p class="hero__note">Chairs, beds, wardrobes, tables and sofas, built in Chennai to your size, wood colour and fabric.</p>
+        <div class="hero__lift"><img class="hero__chair" id="hero-chair" src="img/chair-honey.webp" alt="Cane-back armchair in honey-coloured wood with a turquoise leather seat" width="597" height="772" fetchpriority="high"></div>
+        <a class="badge" href="#quote" aria-label="Request a quote">
+          <svg class="badge__ring" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="ring" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"/></defs>
+            <text><textPath href="#ring" textLength="470">Request a quote · Custom furniture ·</textPath></text>
+          </svg>
+          <span class="badge__core" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#2b170e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true"><div class="marquee__track"><div class="marquee__row"><span>Chairs</span><img src="img/avasa-mark.png" alt="" width="64" height="64"><span>Beds</span><img src="img/avasa-mark.png" alt="" width="64" height="64"><span>Wardrobes</span><img src="img/avasa-mark.png" alt="" width="64" height="64"><span>Tables</span><img src="img/avasa-mark.png" alt="" width="64" height="64"><span>Sofas</span><img src="img/avasa-mark.png" alt="" width="64" height="64"><span>Cane furniture</span><img src="img/avasa-mark.png" alt="" width="64" height="64"><span>Children's furniture</span><img src="img/avasa-mark.png" alt="" width="64" height="64"></div><div class="marquee__row"><span>Chairs</span><img src="img/avasa-mark.png" alt="" width="64" height="64"><span>Beds</span><img src="img/avasa-mark.png" alt="" width="64" height="64"><span>Wardrobes</span><img src="img/avasa-mark.png" alt="" width="64" height="64"><span>Tables</span><img src="img/avasa-mark.png" alt="" width="64" height="64"><span>Sofas</span><img src="img/avasa-mark.png" alt="" width="64" height="64"><span>Cane furniture</span><img src="img/avasa-mark.png" alt="" width="64" height="64"><span>Children's furniture</span><img src="img/avasa-mark.png" alt="" width="64" height="64"></div></div></div>
+
+    <section class="wrap section" id="range" aria-labelledby="range-h">
+      <div class="head">
+        <h2 id="range-h">Furniture made to order, in your size, wood colour and fabric.</h2>
+        <div class="head__side">
+          <p>Pick a piece below, send us a photo of one you like, or bring your own drawing. We build it in our workshop.</p>
+          <a class="btn btn--line" href="avasa-chairs-catalogue-2025.pdf">Get the chairs catalogue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+      </div>
+      <div class="bento">
+        <a class="card card--big" href="#quote" data-piece="Bed"><span class="pill">Bedroom</span><span class="round-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span><img src="img/range-four-poster-bed.webp" alt="" width="900" height="675" loading="lazy"><p class="card__name">Four-poster bed</p></a>
+        <a class="card" href="#quote" data-piece="Chairs"><span class="pill">Living</span><span class="round-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span><img src="img/range-armchair.webp" alt="" width="900" height="675" loading="lazy"><p class="card__name">Studded armchair</p></a>
+        <a class="card" href="#quote" data-piece="Wardrobe"><span class="pill">Storage</span><span class="round-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span><img src="img/range-cabinet.webp" alt="" width="900" height="675" loading="lazy"><p class="card__name">Two-door cabinet</p></a>
+        <a class="card" href="#quote" data-piece="Table"><span class="pill">Hallway</span><span class="round-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span><img src="img/range-cane-console.webp" alt="" width="900" height="675" loading="lazy"><p class="card__name">Cane console</p></a>
+        <a class="card" href="#quote" data-piece="Sofa"><span class="pill">Living</span><span class="round-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span><img src="img/range-settee.webp" alt="" width="900" height="675" loading="lazy"><p class="card__name">Spindle-back settee</p></a>
+        <a class="card" href="#quote" data-piece="Chairs"><span class="pill">Dining</span><span class="round-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span><img src="img/range-dining-chair.webp" alt="" width="900" height="675" loading="lazy"><p class="card__name">Dining chair</p></a>
+        <a class="card" href="#quote" data-piece="Table"><span class="pill">Living</span><span class="round-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span><img src="img/range-side-table.webp" alt="" width="900" height="675" loading="lazy"><p class="card__name">Round side table</p></a>
+        <a class="card" href="#quote" data-piece="Table"><span class="pill">Living</span><span class="round-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span><img src="img/range-coffee-table.webp" alt="" width="900" height="675" loading="lazy"><p class="card__name">Coffee table</p></a>
+        <a class="card" href="#quote" data-piece="Sofa"><span class="pill">Bedroom</span><span class="round-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span><img src="img/hero-bench.webp" alt="" width="1013" height="513" loading="lazy"><p class="card__name">Bed-end bench</p></a>
+      </div>
+    </section>
+
+    <section class="wrap section" id="cane" aria-labelledby="cane-h" style="padding-top: 0">
+      <div class="split">
+        <div class="photo-card">
+          <span class="pill">Cane collection 2026</span>
+          <img src="img/chair-lounge.webp" alt="Black-framed lounge chair with a curved cane back and a cream cushion" width="661" height="623" loading="lazy">
+          <p class="photo-card__name">Woven cane,<br>wood you choose</p>
+        </div>
+        <div class="list-side">
+          <p class="eyebrow">Cane furniture</p>
+          <h2 id="cane-h">Cane chairs in 15 designs</h2>
+          <p>Every cane design comes in the wood finish and seat fabric you pick, for homes, cafés and offices.</p>
+          <ul class="rows">
+            <li><a href="avasa-cane-catalogue-2026.pdf"><strong>Dining chairs</strong><span class="stack"><span><img src="img/t-cane-dining.webp" alt="" width="108" height="160"><img src="img/chair-oval-thumb.webp" alt="" width="188" height="240"><img src="img/t-cane-arm.webp" alt="" width="115" height="160"></span>Designs 01 to 07</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+            <li><a href="avasa-cane-catalogue-2026.pdf"><strong>Arm and lounge chairs</strong><span class="stack"><span><img src="img/chair-honey-thumb.webp" alt="" width="186" height="240"><img src="img/chair-tub-thumb.webp" alt="" width="185" height="240"><img src="img/t-cane-lounge.webp" alt="" width="118" height="160"></span>Designs 08 to 15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+            <li><a href="avasa-cane-catalogue-2026.pdf"><strong>Swivel desk chair</strong><span class="stack"><span><img src="img/t-cane-desk.webp" alt="" width="113" height="160"></span>Design 04</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+          </ul>
+          <div><a class="btn btn--dark" href="avasa-cane-catalogue-2026.pdf">Get the cane catalogue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section ws-sec" id="workshop" aria-labelledby="workshop-h">
+      <div class="ws">
+        <div class="ws__text">
+          <p class="eyebrow">How we work</p>
+          <h2 id="workshop-h">Built in our own workshop.</h2>
+          <p>Send us a photo, a sketch or a design from our catalogue, with the size you need.</p>
+          <ol class="steps">
+            <li class="is-on"><b>01</b><span>You send a picture of the piece and its size.</span></li>
+            <li><b>02</b><span>You pick the wood colour and the fabric.</span></li>
+            <li><b>03</b><span>We build the frame, finish the wood and upholster it.</span></li>
+          </ol>
+          <div class="ws__bar" aria-hidden="true"><span></span></div>
+        </div>
+        <div class="ws__stage">
+          <figure class="ws__shot cut"><img class="fit-bleed" src="img/wc-armchair.webp" alt="Green leather armchair with carved side panels" width="831" height="1000" loading="lazy"></figure>
+          <figure class="ws__shot cut"><img class="fit-bleed" src="img/wc-tub-front.webp" alt="Green leather tub chair with a carved wooden frame, seen from the front" width="802" height="1000" loading="lazy"></figure>
+          <figure class="ws__shot cut"><img class="fit-contain" src="img/wc-tub-back.webp" alt="The same tub chair from behind, showing the studded leather back" width="1000" height="867" loading="lazy"></figure>
+          <div class="tag"><b>Avasa</b><span>Frame, finish and upholstery, done in our workshop.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="kids" aria-labelledby="kids-h">
+      <div class="band">
+        <div class="head">
+          <h2 id="kids-h">Children's furniture, made in the same workshop.</h2>
+          <div class="head__side"><p>Climbing triangles, rocking toys, walkers, small chairs and tables, sized for small children.</p></div>
+        </div>
+<div class="kids-track">
+          <figure class="kid"><img src="img/kc-climbing-triangle.webp" alt="Folding wooden climbing triangle with pale blue rungs" width="841" height="819" loading="lazy"></figure>
+          <figure class="kid"><img src="img/kc-rocker.webp" alt="Plywood rocking horse with a handle at the front" width="755" height="549" loading="lazy"></figure>
+          <figure class="kid"><img src="img/kc-table-and-chair.webp" alt="Child's table with a blue top and a matching chair" width="773" height="684" loading="lazy"></figure>
+          <figure class="kid"><img src="img/kc-walker.webp" alt="Wooden baby walker with pink and teal rails" width="808" height="675" loading="lazy"></figure>
+          <figure class="kid"><img src="img/kc-blue-chair.webp" alt="Small birch chair with a pale blue seat and back" width="400" height="558" loading="lazy"></figure>
+          <figure class="kid"><img src="img/kc-horse.webp" alt="Wooden rocking horse with a seat frame" width="789" height="682" loading="lazy"></figure>
+          <figure class="kid"><img src="img/kc-seesaw.webp" alt="Wooden rocker with two teal handles" width="771" height="486" loading="lazy"></figure>
+          <figure class="kid"><img src="img/kc-pink-chair.webp" alt="Small wooden chair with a pink seat and back" width="425" height="581" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="quote" aria-labelledby="quote-h" style="padding-top: 0">
+      <div class="quote">
+        <div class="quote__say">
+          <img src="img/avasa-mark.png" alt="" width="64" height="64">
+          <div>
+            <h2 id="quote-h"><span class="line"><span>Let's build</span></span><span class="line"><span>your piece.</span></span></h2>
+          </div>
+          <p>Tell us what you need and we reply with a price. Prefer to talk? <a href="https://wa.me/919965566552">WhatsApp 99655 66552</a>.</p>
+        </div>
+        <form class="form" id="quote-form" novalidate>
+          <h3>Request a quote</h3>
+          <p>We reply on WhatsApp or by phone.</p>
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required aria-describedby="f-name-err"><p class="err" id="f-name-err" hidden>Write the name we should reply to.</p></div>
+          <div class="field"><label for="f-phone">Phone or WhatsApp</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="f-phone-err"><p class="err" id="f-phone-err" hidden>Write a number we can call or message.</p></div>
+          <fieldset class="chips field">
+            <legend>I'm looking for</legend>
+            <div>
+              <input type="radio" name="piece" id="p1" value="Chairs" checked><label for="p1">Chairs</label>
+              <input type="radio" name="piece" id="p2" value="Sofa"><label for="p2">Sofa</label>
+              <input type="radio" name="piece" id="p3" value="Bed"><label for="p3">Bed</label>
+              <input type="radio" name="piece" id="p4" value="Wardrobe"><label for="p4">Wardrobe</label>
+              <input type="radio" name="piece" id="p5" value="Table"><label for="p5">Table</label>
+              <input type="radio" name="piece" id="p6" value="Cane furniture"><label for="p6">Cane</label>
+              <input type="radio" name="piece" id="p7" value="Children's furniture"><label for="p7">Children's</label>
+            </div>
+          </fieldset>
+          <div class="field"><label for="f-details">Size, quantity, wood colour and fabric</label><textarea id="f-details" name="details" rows="3"></textarea></div>
+          <button class="btn btn--dark" type="submit">Request a quote on WhatsApp</button>
+          <p class="form__alt">or <a href="mailto:avasadesign9@gmail.com" id="mail-link">send it by email</a></p>
+          <p class="form__status" role="status" id="form-status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p class="footer__word" aria-hidden="true"><span class="wd"><span class="l">A</span><span class="l">v</span><span class="l">a</span><span class="l">s</span><span class="l">a</span></span> <span class="wd"><span class="l">D</span><span class="l">e</span><span class="l">s</span><span class="l">i</span><span class="l">g</span><span class="l">n</span></span></p>
+    <div class="footer__cols">
+      <div><h3>Workshop and office</h3><p><a href="https://www.openstreetmap.org/search?query=200%20Feet%20Radial%20Road%20Old%20Pallavaram%20Chennai">S.No. 93, 2C, 200 Feet Radial Road,<br>Old Pallavaram, Chennai 600117</a></p></div>
+      <div><h3>Talk to us</h3><ul><li><a href="tel:+919965566552">99655 66552</a></li><li><a href="https://wa.me/919965566552">WhatsApp</a></li><li><a href="mailto:avasadesign9@gmail.com">avasadesign9@gmail.com</a></li></ul></div>
+      <div><h3>Catalogues</h3><ul><li><a href="avasa-chairs-catalogue-2025.pdf">Chairs 2025 (PDF)</a></li><li><a href="avasa-cane-catalogue-2026.pdf">Cane furniture 2026 (PDF)</a></li></ul></div>
+      <div><h3>Explore</h3><ul><li><a href="#range">Range</a></li><li><a href="#cane">Cane</a></li><li><a href="#workshop">Workshop</a></li><li><a href="#kids">Children</a></li></ul></div>
+    </div>
+    <div class="legal"><span>&copy; 2026 Avasa Design. Made in India.</span><span>www.avasadesign.in</span></div>
+  </footer>
+</div>
+
+<script>
+// hero: the thumbnails swap the chair standing in the frame
+const chair = document.getElementById('hero-chair');
+document.querySelectorAll('.hero__thumbs button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.getAttribute('aria-pressed') === 'true') return;
+    document.querySelectorAll('.hero__thumbs button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+    const next = new Image(); next.src = btn.dataset.chair;
+    chair.classList.add('is-swapping');
+    const swap = () => { chair.src = next.src; chair.alt = btn.dataset.alt; requestAnimationFrame(() => chair.classList.remove('is-swapping')); };
+    Promise.all([next.decode().catch(() => {}), new Promise(r => setTimeout(r, 200))]).then(swap);
+  });
+});
+
+// range cards pick the matching chip in the quote form
+document.querySelectorAll('[data-piece]').forEach(card => card.addEventListener('click', () => {
+  const chip = document.querySelector(`.chips input[value="${card.dataset.piece}"]`);
+  if (chip) chip.checked = true;
+}));
+
+// quote form: checked on submit, then opened as a WhatsApp message (or an email) with what was typed
+const form = document.getElementById('quote-form');
+const status = document.getElementById('form-status');
+const message = () => {
+  const d = new FormData(form);
+  return `Hello Avasa Design, I would like a quote.\nName: ${d.get('name')}\nPhone: ${d.get('phone')}\nLooking for: ${d.get('piece')}\nDetails: ${d.get('details') || '-'}`;
+};
+const check = () => {
+  let first = null;
+  ['f-name', 'f-phone'].forEach(id => {
+    const el = document.getElementById(id), err = document.getElementById(id + '-err'), bad = !el.value.trim();
+    el.setAttribute('aria-invalid', String(bad)); err.hidden = !bad;
+    if (bad && !first) first = el;
+  });
+  if (first) { first.focus(); status.textContent = 'Fill in the fields marked above.'; return false; }
+  status.textContent = ''; return true;
+};
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  if (!check()) return;
+  window.open(`https://wa.me/919965566552?text=${encodeURIComponent(message())}`, '_blank', 'noopener');
+  status.textContent = 'WhatsApp opened with your request. Press send there.';
+});
+document.getElementById('mail-link').addEventListener('click', e => {
+  if (!check()) { e.preventDefault(); return; }
+  e.currentTarget.href = `mailto:avasadesign9@gmail.com?subject=${encodeURIComponent('Quote request')}&body=${encodeURIComponent(message())}`;
+});
+</script>
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  const root = document.documentElement;
+  if (!root.classList.contains('motion') || !window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+  const ease = 'expo.out';
+  const mm = gsap.matchMedia();
+  const letters = gsap.utils.toArray('.hero__word .l');
+
+  /* 1. hero entrance: the letters rise, the frame opens, the chair lifts into the name */
+  const intro = gsap.timeline({ defaults: { ease } });
+  intro.fromTo(letters, { yPercent: 70, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 1.2, stagger: .08 })
+    .fromTo('.hero__frame', { clipPath: 'inset(48% 0% 0% 0% round 40px)' }, { clipPath: 'inset(0% 0% 0% 0% round 40px)', duration: 1.2 }, .15)
+    .fromTo('.hero__lift', { y: 200, opacity: 0, rotate: -4 }, { y: 0, opacity: 1, rotate: 0, duration: 1.5 }, .45)
+    .fromTo(['.hero__note', '.hero__thumbs', '.badge'], { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: .9, stagger: .1 }, 1)
+    .add(() => {
+      gsap.set(['.hero__frame', '.hero__note', '.hero__thumbs', '.badge', '.hero__lift', letters], { clearProps: 'clipPath,opacity' });
+      root.classList.remove('intro');
+      heroScroll();
+    });
+
+  /* 2. hero on scroll (desktop): pinned while the name spreads apart, the frame opens to the sheet's edges and the chair comes forward */
+  function heroScroll() {
+    mm.add('(min-width: 1024px)', () => {
+      const hero = document.querySelector('.hero');
+      const pad = () => parseFloat(getComputedStyle(hero).paddingLeft);
+      const tl = gsap.timeline({ scrollTrigger: { trigger: hero, start: 'top top', end: '+=75%', scrub: .6, pin: true, invalidateOnRefresh: true, refreshPriority: 10 } });
+      tl.to(letters, { x: i => (i - 2) * innerWidth * .04, yPercent: -16, opacity: .16, ease: 'none' }, 0)
+        .to('.hero__stage', { marginLeft: () => -pad(), marginRight: () => -pad(), ease: 'none' }, 0)
+        .to('.hero__frame', { borderRadius: 0, ease: 'none' }, 0)
+        .to('.hero__lift', { y: () => -innerHeight * .07, scale: 1.12, ease: 'none' }, 0)
+        .to('.hero__note', { y: -30, opacity: 0, ease: 'none' }, 0)
+        .to('.badge', { scale: .7, opacity: 0, ease: 'none' }, 0);
+      ScrollTrigger.sort();
+      ScrollTrigger.refresh();
+    });
+  }
+
+  /* 3. the marquee runs on its own and speeds up (and turns) with the scroll */
+  const mq = gsap.to('.marquee__track', { xPercent: -50, repeat: -1, duration: 32, ease: 'none' });
+  mq.totalTime(mq.duration() * 50);
+  ScrollTrigger.create({
+    trigger: '.marquee', start: 'top bottom', end: 'bottom top',
+    onUpdate: self => {
+      const boost = self.direction * (1 + Math.min(Math.abs(self.getVelocity()) / 300, 5));
+      gsap.timeline({ overwrite: true }).to(mq, { timeScale: boost, duration: .15 }).to(mq, { timeScale: self.direction, duration: 1.2, ease: 'power2.out' });
+    }
+  });
+
+  /* 4. the range heading fills in word by word; the cards rise in batches */
+  const rh = document.getElementById('range-h');
+  rh.innerHTML = rh.textContent.trim().split(/\s+/).map(w => `<span class="w">${w}</span>`).join(' ');
+  gsap.fromTo('#range-h .w', { opacity: .15 }, { opacity: 1, stagger: .1, ease: 'none', scrollTrigger: { trigger: rh, start: 'top 85%', end: 'top 40%', scrub: true } });
+  gsap.set('.card', { opacity: 0, y: 70 });
+  ScrollTrigger.batch('.card', {
+    start: 'top 92%', once: true,
+    onEnter: batch => {
+      gsap.to(batch, { opacity: 1, y: 0, duration: 1, stagger: .08, ease, clearProps: 'transform,opacity' });
+      gsap.fromTo(batch.map(c => c.querySelector('img')), { scale: 1.18 }, { scale: 1, duration: 1.4, stagger: .08, ease, clearProps: 'transform' });
+    }
+  });
+
+  /* 5. cane: the chair drifts against the weave; the list slides in */
+  gsap.set('.photo-card img', { xPercent: -50, yPercent: -50, x: 0, y: 0 });
+  gsap.fromTo('.photo-card img', { yPercent: -38 }, { yPercent: -62, ease: 'none', scrollTrigger: { trigger: '.photo-card', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.fromTo('.photo-card', { backgroundPosition: '50% 0%' }, { backgroundPosition: '50% 100%', ease: 'none', scrollTrigger: { trigger: '.photo-card', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.from('.rows li', { x: 48, opacity: 0, duration: .9, stagger: .1, ease, scrollTrigger: { trigger: '.rows', start: 'top 85%' } });
+
+  /* 6. workshop (desktop): pinned; each step brings up its own photograph */
+  mm.add('(min-width: 1024px)', () => {
+    const shots = gsap.utils.toArray('.ws__shot');
+    const steps = gsap.utils.toArray('.steps li');
+    gsap.set(shots.slice(1), { clipPath: 'inset(100% 0% 0% 0%)' });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#workshop', start: 'top top', end: '+=200%', pin: true, scrub: .5,
+        onUpdate: self => { const i = Math.min(2, Math.floor(self.progress * 3)); steps.forEach((s, k) => s.classList.toggle('is-on', k === i)); }
+      }
+    });
+    tl.fromTo('.ws__bar span', { scaleX: .333 }, { scaleX: 1, duration: 2, ease: 'none' }, 0)
+      .to(shots[1], { clipPath: 'inset(0% 0% 0% 0%)', duration: .36, ease: 'none' }, .3)
+      .fromTo(shots[1].querySelector('img'), { scale: 1.2 }, { scale: 1, duration: .36, ease: 'none' }, .3)
+      .to(shots[2], { clipPath: 'inset(0% 0% 0% 0%)', duration: .36, ease: 'none' }, .97)
+      .fromTo(shots[2].querySelector('img'), { scale: 1.2 }, { scale: 1, duration: .36, ease: 'none' }, .97);
+    return () => { gsap.set(shots, { clearProps: 'clipPath' }); steps.forEach((s, k) => s.classList.toggle('is-on', k === 0)); };
+  });
+
+  /* 7. children's furniture (tablet and up): pinned; the photographs run sideways */
+  mm.add('(min-width: 768px)', () => {
+    const track = document.querySelector('.kids-track');
+    const band = track.parentElement;
+    const figs = track.querySelectorAll('figure');
+    // distance from the photos' real positions (not scrollWidth, which Safari reports differently for this row)
+    const dist = () => {
+      const pad = parseFloat(getComputedStyle(band).paddingLeft);
+      const shift = gsap.getProperty(track, 'x') || 0;
+      const first = figs[0].getBoundingClientRect().left - shift;
+      const last = figs[figs.length - 1].getBoundingClientRect().right - shift;
+      return Math.max(0, (last - first) - (band.clientWidth - 2 * pad));
+    };
+    gsap.to(track, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: '#kids', start: 'center center', end: () => '+=' + dist(), pin: true, scrub: .5, invalidateOnRefresh: true } });
+  });
+
+  /* 8. quote card grows into place; its headline lines rise */
+  const quote = document.querySelector('.quote');
+  const qr = parseFloat(getComputedStyle(quote).borderTopLeftRadius);
+  gsap.fromTo(quote, { scale: .9, borderRadius: 96 }, { scale: 1, borderRadius: qr, ease: 'none', scrollTrigger: { trigger: quote, start: 'top bottom', end: 'top 35%', scrub: true } });
+  gsap.from('.quote__say h2 .line > span', { yPercent: 110, duration: 1.1, stagger: .12, ease, scrollTrigger: { trigger: quote, start: 'top 55%' } });
+
+  /* 9. the footer name rises letter by letter */
+  gsap.from('.footer__word .l', { yPercent: 110, stagger: .035, ease: 'none', scrollTrigger: { trigger: '.footer', start: 'top 92%', end: 'top 45%', scrub: true } });
+
+  addEventListener('load', () => ScrollTrigger.refresh());
+  if (document.fonts) document.fonts.ready.then(() => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>

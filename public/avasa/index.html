@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Avasa Design: custom furniture made in Chennai</title>
+<meta name="description" content="Chairs, beds, wardrobes, tables, sofas and cane furniture built to your size, wood colour and fabric by Avasa Design in Chennai.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Avasa Design: custom furniture made in Chennai">
+<meta property="og:description" content="Furniture made to order in Chennai, in your size, wood colour and fabric.">
+<meta property="og:image" content="share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fbfaf7">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #fbfaf7;
+  --ink: #17251c;
+  --muted: #5e665f;
+  --line: rgba(23, 37, 28, .14);
+  --sage: #5f7f55;
+  --sage-dark: #4b6943;
+  --cyan: #62d4ef;
+  --orange: #f6873a;
+  --lime: #d6f27e;
+  --pink: #f8cfd3;
+  --yellow: #f4ec6a;
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: "Manrope", system-ui, sans-serif;
+  --pad: clamp(20px, 5vw, 88px);
+  --r: 18px;
+  --ease: cubic-bezier(.23, 1, .32, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; color: var(--ink); font: 400 16px/1.6 var(--sans);
+  background-color: var(--paper);
+  /* a faint marble: soft grey veins drawn by an SVG noise filter */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.0025 .009' numOctaves='5' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .44 0 0 0 0 .42 0 0 0 -14 6.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)' opacity='.05'/%3E%3C/svg%3E");
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+::selection { background: var(--lime); color: var(--ink); }
+:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; border-radius: 4px; }
+.sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: 16px; top: -60px; background: var(--ink); color: #fff; padding: 10px 16px; z-index: 20; border-radius: 8px; }
+.skip:focus { top: 12px; }
+.wrap { max-width: 1440px; margin: 0 auto; padding-inline: var(--pad); }
+
+/* type */
+.serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em; line-height: .98; margin: 0; }
+.caps { font: 300 clamp(26px, 2.6vw, 40px)/1.02 var(--sans); text-transform: uppercase; letter-spacing: -.01em; margin: 0; }
+.caps b { font-weight: 800; }
+.small { font-size: 14px; line-height: 1.5; color: var(--muted); margin: 0; }
+.link { display: inline-flex; align-items: center; gap: 6px; font: 700 13px/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; padding-bottom: 5px; border-bottom: 1.5px solid currentColor; }
+.link svg { width: 12px; height: 12px; transition: transform 200ms var(--ease); }
+.link:hover svg { transform: translateX(3px); }
+.tag { display: inline-block; padding: 4px 12px; border: 1px solid var(--ink); border-radius: 999px; font: 500 12px/1.3 var(--sans); background: #fff; }
+/* image set inside a headline */
+.inline-tile { display: inline-grid; place-items: end center; width: .9em; height: .82em; vertical-align: -.06em; margin: 0 .06em; border-radius: .12em; background: var(--yellow); overflow: visible; }
+.inline-tile img { height: 1.02em; width: auto; max-width: none; margin-bottom: -.02em; filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .15)); }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 18px; height: 54px; padding: 0 22px; border: 0; border-radius: 6px; background: var(--sage); color: #fff; font: 700 14px/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background-color 200ms ease, transform 160ms var(--ease); }
+.btn:hover { background: var(--sage-dark); }
+.btn:active { transform: scale(.97); }
+.btn svg { width: 14px; height: 14px; transition: transform 200ms var(--ease); }
+.btn:hover svg { transform: translate(2px, -2px); }
+.wa { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; font: 700 14px/1.15 var(--sans); letter-spacing: .06em; text-transform: uppercase; }
+.wa .rule { width: 64px; height: 1px; background: var(--ink); }
+.wa svg { width: 22px; height: 22px; }
+.dot-arrow { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--orange); color: #fff; box-shadow: 0 6px 14px rgba(246, 135, 58, .35); transition: transform 200ms var(--ease); }
+.dot-arrow svg { width: 14px; height: 14px; }
+a:hover > .dot-arrow { transform: rotate(45deg); }
+
+/* coloured tiles that products spill out of */
+.tile { position: relative; border-radius: var(--r); }
+.tile > img { position: absolute; max-width: none; width: auto; height: auto; filter: drop-shadow(0 14px 16px rgba(0, 0, 0, .18)); }
+.frame-corners { position: relative; padding: 14px; width: 148px; aspect-ratio: 1.05; display: grid; place-items: center; }
+.frame-corners::before { content: ""; position: absolute; inset: 0; --c: var(--orange); background:
+  linear-gradient(var(--c), var(--c)) 0 0 / 18px 1.5px no-repeat, linear-gradient(var(--c), var(--c)) 0 0 / 1.5px 18px no-repeat,
+  linear-gradient(var(--c), var(--c)) 100% 0 / 18px 1.5px no-repeat, linear-gradient(var(--c), var(--c)) 100% 0 / 1.5px 18px no-repeat,
+  linear-gradient(var(--c), var(--c)) 0 100% / 18px 1.5px no-repeat, linear-gradient(var(--c), var(--c)) 0 100% / 1.5px 18px no-repeat,
+  linear-gradient(var(--c), var(--c)) 100% 100% / 18px 1.5px no-repeat, linear-gradient(var(--c), var(--c)) 100% 100% / 1.5px 18px no-repeat; }
+.frame-corners img { width: 100%; height: 100%; object-fit: contain; }
+.under { font: 500 15px/1.25 var(--sans); text-decoration: underline; text-underline-offset: 3px; display: inline-block; margin-top: 10px; }
+
+/* nav */
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 28px; }
+.logo { font: 400 34px/1 var(--serif); text-decoration: none; letter-spacing: -.01em; }
+.logo i { font-style: normal; color: var(--orange); }
+.nav ul { display: flex; gap: clamp(18px, 2.6vw, 40px); list-style: none; margin: 0; padding: 0; }
+.nav ul a { text-decoration: none; font: 600 14px/1 var(--sans); letter-spacing: .05em; text-transform: uppercase; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.5px no-repeat; padding-bottom: 5px; transition: background-size 220ms var(--ease); }
+.nav ul a:hover { background-size: 100% 1.5px; }
+.nav__cta { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font: 600 14px/1 var(--sans); letter-spacing: .05em; text-transform: uppercase; }
+.nav__cta span:last-child { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--pink); transition: transform 200ms var(--ease); }
+.nav__cta:hover span:last-child { transform: rotate(45deg); }
+.nav__cta svg { width: 16px; height: 16px; }
+
+/* 1. hero */
+.hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; padding-block: clamp(24px, 4vw, 56px) clamp(40px, 5vw, 80px); }
+.hero h1 { font-size: clamp(64px, 8.6vw, 140px); }
+.hero__line2 { display: flex; align-items: flex-end; gap: clamp(20px, 3vw, 40px); flex-wrap: wrap; }
+.hero__line2 p { max-width: 270px; margin: 0 0 .7em; font: 400 16px/1.5 var(--sans); letter-spacing: 0; }
+.hero__actions { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; margin-top: clamp(28px, 3vw, 44px); }
+.hero__art { position: relative; height: clamp(380px, 38vw, 560px); }
+.hero__art .t-orange { position: absolute; right: 0; top: 0; width: 44%; height: 54%; background: var(--orange); }
+.hero__art .t-orange img { height: 86%; right: 14%; bottom: -12%; }
+.hero__art .t-cyan { position: absolute; left: 6%; bottom: 0; width: 46%; height: 64%; background: var(--cyan); z-index: 2; }
+.hero__art .t-cyan img { height: 98%; left: 50%; transform: translateX(-50%); bottom: -12%; }
+
+/* 2. crafting row */
+.craft { display: grid; grid-template-columns: 1.15fr .8fr .7fr; gap: 40px; align-items: end; padding-bottom: clamp(56px, 7vw, 110px); }
+.craft__left { display: grid; gap: 24px; }
+.craft__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+.craft__top .caps { max-width: 420px; }
+.craft__sofa { width: 100%; height: auto; filter: drop-shadow(0 22px 22px rgba(0, 0, 0, .18)); margin-top: 12px; }
+.craft__mid { display: grid; justify-items: center; text-align: center; gap: 14px; padding-bottom: 20px; }
+.circle { width: 190px; aspect-ratio: 1; border-radius: 50%; background: var(--pink); position: relative; }
+.circle img { position: absolute; left: 50%; bottom: 6%; height: 108%; width: auto; max-width: none; transform: translateX(-50%); filter: drop-shadow(0 10px 12px rgba(0, 0, 0, .2)); }
+.craft__mid h3 { font: 400 36px/1 var(--serif); margin: 10px 0 0; }
+.craft__mid p { margin: 0; max-width: 260px; }
+.t-lime-tall { background: var(--lime); height: clamp(380px, 30vw, 460px); padding: 28px; display: flex; align-items: flex-end; }
+.t-lime-tall img { width: 96%; left: 2%; top: -10%; }
+.t-lime-tall p { position: relative; margin: 0; font: 700 21px/1.2 var(--sans); color: #2d4a20; }
+
+/* 3. live-with */
+.livewith { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); padding-block: clamp(56px, 7vw, 110px); border-top: 1px solid var(--line); }
+.livewith__left { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 40px; align-content: start; }
+.livewith__left .caps { grid-column: 1 / 2; }
+.livewith__left > p { margin: 0; }
+.cabinet { display: grid; gap: 16px; justify-items: center; }
+.cabinet img { width: 100%; max-width: 300px; filter: drop-shadow(0 18px 16px rgba(0, 0, 0, .16)); }
+.weave-card { display: grid; gap: 16px; justify-items: center; align-self: center; }
+.weave-card .tile { width: 170px; aspect-ratio: 1; background: var(--orange); overflow: hidden; }
+.weave-card .tile img { position: static; width: 100%; height: 100%; object-fit: cover; filter: none; mix-blend-mode: multiply; }
+.livewith__right h2 { font-size: clamp(56px, 6.2vw, 104px); }
+.livewith__right .inline-tile { background: var(--lime); }
+.livewith__right > p { margin: 28px 0 36px; font-size: 18px; }
+
+/* 4. every room */
+.rooms { padding-block: clamp(56px, 7vw, 110px); }
+.rooms__title { text-align: center; display: grid; justify-items: center; gap: 14px; margin-bottom: clamp(40px, 5vw, 72px); }
+.rooms__title h2 { font-size: clamp(48px, 4.8vw, 80px); }
+.rooms__row { display: grid; grid-template-columns: .8fr 1fr 1.25fr 1fr; gap: 32px; align-items: center; }
+.yellow-circle { width: 150px; aspect-ratio: 1; border-radius: 50%; background: var(--yellow); position: relative; margin-bottom: 16px; }
+.yellow-circle img { position: absolute; left: 50%; bottom: 4%; height: 120%; width: auto; max-width: none; transform: translateX(-50%); filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .2)); }
+.rooms__row h3 { font: 400 28px/1.05 var(--serif); margin: 0 0 8px; }
+.warmth { display: grid; gap: 14px; justify-items: start; text-decoration: none; }
+.t-lime-wide { background: var(--lime); height: 280px; }
+.t-lime-wide img { height: 112%; left: 50%; transform: translateX(-50%); bottom: -6%; }
+.room-copy { display: grid; gap: 12px; justify-items: start; }
+.room-copy .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.room-copy h3 { font-size: 40px; margin: 0; }
+
+/* 5. pieces */
+.pieces { padding-block: clamp(56px, 7vw, 110px); border-top: 1px solid var(--line); }
+.pieces__head { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: end; margin-bottom: clamp(32px, 4vw, 56px); }
+.pieces__head h2 { font-size: clamp(48px, 5vw, 84px); }
+.pieces__head .caps { font-size: clamp(22px, 1.8vw, 28px); margin-bottom: 10px; }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.pcard { display: grid; grid-template-rows: 1fr auto; border: 1.5px solid #d9dcd6; border-radius: 6px; background: #fff; text-decoration: none; transition: border-color 200ms ease, transform 240ms var(--ease); }
+.pcard figure { margin: 0; aspect-ratio: 1; position: relative; }
+.pcard img { position: absolute; inset: 14%; width: 72%; height: 72%; object-fit: contain; transition: transform 500ms var(--ease); }
+.pcard div { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; padding: 14px 16px 16px; margin: 0 8px 8px; border-radius: 4px; }
+.pcard h3 { font: 400 24px/1.05 var(--serif); margin: 0; }
+.pcard span { font: 700 11px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; border-bottom: 1.5px solid; padding-bottom: 4px; white-space: nowrap; }
+.pcard.is-pink div { background: var(--pink); }
+@media (hover: hover) and (pointer: fine) { .pcard:hover { border-color: var(--ink); transform: translateY(-3px); } .pcard:hover img { transform: scale(1.04); } }
+
+/* 6. workshop */
+.workshop { display: grid; grid-template-columns: .8fr 1.1fr 1.2fr; gap: clamp(28px, 4vw, 64px); align-items: center; padding-block: clamp(56px, 7vw, 110px); border-top: 1px solid var(--line); }
+.studs { display: grid; gap: 14px; justify-items: center; text-align: center; }
+.studs .tile { width: 100%; max-width: 230px; aspect-ratio: 1; background: var(--yellow); overflow: hidden; padding: 18px; }
+.studs .tile img { position: static; width: 100%; height: 100%; object-fit: cover; border-radius: 10px; filter: none; }
+.studs h3 { font: 400 26px/1 var(--serif); margin: 6px 0 0; }
+.annot { position: relative; }
+.annot img { width: 100%; filter: drop-shadow(0 22px 22px rgba(0, 0, 0, .2)); }
+.annot .pin { position: absolute; padding: 6px 14px; border-radius: 999px; font: 600 13px/1.2 var(--sans); white-space: nowrap; box-shadow: 0 6px 14px rgba(0, 0, 0, .12); }
+.annot .pin--o { background: var(--orange); color: #fff; left: -4%; top: 30%; }
+.annot .pin--l { background: var(--lime); color: var(--ink); right: 0; bottom: 18%; }
+.annot .plus { position: absolute; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--ink); background: #fff; display: grid; place-items: center; font: 500 16px/1 var(--sans); }
+.workshop h2 { font-size: clamp(50px, 4.8vw, 80px); }
+.workshop h2 .inline-tile { background: var(--orange); }
+.workshop ol { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 0; }
+.workshop li { display: grid; grid-template-columns: 44px 1fr; padding: 14px 0; border-top: 1px solid var(--line); }
+.workshop li b { font: 400 24px/1 var(--serif); }
+
+/* 7. quote */
+.quote { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(32px, 5vw, 80px); padding-block: clamp(56px, 7vw, 110px); border-top: 1px solid var(--line); align-items: start; }
+.quote h2 { font-size: clamp(52px, 5.4vw, 92px); margin: 18px 0 18px; }
+.quote__intro p { margin: 0 0 28px; max-width: 46ch; color: var(--muted); }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { display: grid; gap: 6px; }
+.field--full, .form > .full { grid-column: 1 / -1; }
+.field label { font: 700 12px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; }
+.field input, .field select, .field textarea { width: 100%; font: 400 16px/1.4 var(--sans); color: var(--ink); background: #fff; border: 1.5px solid #d9dcd6; border-radius: 6px; padding: 13px 14px; transition: border-color 160ms ease; }
+.field input, .field select { height: 50px; }
+.field textarea { min-height: 96px; resize: vertical; }
+.field :is(input, select, textarea):focus { outline: none; border-color: var(--sage); }
+.field [aria-invalid="true"] { border-color: #c0392b; }
+.err { margin: 0; color: #b03224; font-size: 13px; }
+.form__row { grid-column: 1 / -1; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 6px; }
+.status { grid-column: 1 / -1; margin: 0; font-size: 14px; color: var(--sage-dark); min-height: 1.4em; }
+.t-pink { background: var(--pink); min-height: 520px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; }
+.t-pink .tag { align-self: flex-start; background: transparent; }
+.t-pink img { width: 84%; left: 8%; top: 22%; }
+.t-pink .caps { position: relative; font-size: clamp(26px, 2.2vw, 34px); }
+.contact-lines { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; margin-top: 40px; }
+.contact-lines h3 { font: 700 12px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+.contact-lines p { margin: 0; }
+.contact-lines a { text-decoration: none; border-bottom: 1px solid var(--line); }
+.contact-lines a:hover { border-color: var(--ink); }
+
+/* footer */
+.footer { border-top: 1px solid var(--line); padding-block: 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.footer ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+.footer ul a { text-decoration: none; font: 600 13px/1 var(--sans); letter-spacing: .05em; text-transform: uppercase; }
+.footer small { color: var(--muted); font-size: 13px; }
+
+/* tablet */
+@media (max-width: 1023px) {
+  .nav ul { display: none; }
+  .hero, .livewith, .quote, .pieces__head { grid-template-columns: 1fr; }
+  .craft { grid-template-columns: 1fr 1fr; }
+  .craft__left { grid-column: 1 / -1; }
+  .rooms__row { grid-template-columns: 1fr 1fr; gap: 40px 32px; }
+  .cards { grid-template-columns: 1fr 1fr; }
+  .workshop { grid-template-columns: 1fr 1fr; }
+  .workshop > div:last-child { grid-column: 1 / -1; }
+}
+/* phone */
+@media (max-width: 639px) {
+  .nav { padding-block: 20px; }
+  .nav__cta span:first-child { display: none; }
+  .hero__art { height: 340px; }
+  .craft { grid-template-columns: 1fr; }
+  .craft__top { flex-direction: column; }
+  .t-lime-tall { height: 360px; margin-top: 60px; }
+  .livewith__left { grid-template-columns: 1fr; }
+  .rooms__row { grid-template-columns: 1fr; text-align: left; }
+  .t-lime-wide { height: 240px; margin-top: 30px; }
+  .cards { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pcard h3 { font-size: 20px; }
+  .pcard div { flex-direction: column; align-items: flex-start; padding: 10px 12px 12px; }
+  .workshop { grid-template-columns: 1fr; }
+  .studs { display: none; }
+  .form { grid-template-columns: 1fr; }
+  .t-pink { min-height: 440px; }
+  .contact-lines { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0ms !important; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap nav">
+  <a class="logo" href="#main" aria-label="Avasa Design, home">Avasa<i>.</i></a>
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="#pieces">Furniture</a></li>
+      <li><a href="#rooms">Cane</a></li>
+      <li><a href="#workshop">Workshop</a></li>
+      <li><a href="#craft">Children</a></li>
+      <li><a href="#quote">Contact</a></li>
+    </ul>
+  </nav>
+  <a class="nav__cta" href="#quote"><span>Get a quote</span><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+</header>
+
+<main id="main">
+  <!-- 1. hero -->
+  <section class="wrap hero" aria-labelledby="hero-h">
+    <div>
+      <h1 class="serif" id="hero-h"><span class="sr">Custom furniture, made to order in Chennai</span><span aria-hidden="true">Made <span class="inline-tile"><img src="img/chair-square.webp" alt="" width="394" height="700"></span> to<span class="hero__line2"><span>Order</span><p>Chairs, beds, wardrobes, tables and sofas, built in Chennai to your size, wood colour and fabric.</p></span></span></h1>
+      <div class="hero__actions">
+        <a class="btn" href="#quote">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a class="wa" href="https://wa.me/919965566552">WhatsApp <span class="rule" aria-hidden="true"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.4-4.3A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M9 8.6c.3-.6.7-.6 1-.6l.6.1 1 2.2-.6.9c.6 1.2 1.5 2 2.7 2.6l.9-.6 2.2 1v.6c0 .3 0 .7-.6 1-.5.3-1.5.5-3-.2a8.6 8.6 0 0 1-4-4c-.6-1.5-.4-2.5-.2-3Z" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+    <div class="hero__art">
+      <div class="tile t-orange"><img src="img/chair-oval.webp" alt="Dining chair with an oval cane back and a blue seat" width="608" height="774"></div>
+      <div class="tile t-cyan"><img src="img/chair-honey.webp" alt="Cane-back armchair in honey-coloured wood with a turquoise seat" width="597" height="772" fetchpriority="high"></div>
+    </div>
+  </section>
+
+  <!-- 2. one piece at a time -->
+  <section class="wrap craft" id="craft" aria-labelledby="craft-h">
+    <div class="craft__left">
+      <div class="craft__top">
+        <a class="latest" href="avasa-cane-catalogue-2026.pdf"><span class="frame-corners"><img src="img/chair-lounge.webp" alt="" width="661" height="623"></span><span class="under">Cane catalogue<br>2026 (PDF)</span></a>
+        <h2 class="caps" id="craft-h"><b>Built to</b> your size, <b>one piece at a</b> time.</h2>
+        <a href="#quote" aria-label="Get a quote"><span class="dot-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+      </div>
+      <img class="craft__sofa" src="img/pc-settee-set.webp" alt="Three-piece set of two armchairs and a settee with spindle backs and green leather" width="806" height="260" loading="lazy">
+    </div>
+    <div class="craft__mid">
+      <div class="circle"><img src="img/chair-tub.webp" alt="Cane tub chair in dark wood with an orange seat" width="570" height="738" loading="lazy"></div>
+      <h3>Cane, your way</h3>
+      <p>Fifteen cane chair designs, in the wood finish and seat fabric you choose.</p>
+      <a class="link" href="#rooms">Cane chairs <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m4.5 2.5 3.5 3.5-3.5 3.5"/></svg></a>
+    </div>
+    <div class="tile t-lime-tall">
+      <img src="img/kc-rocker.webp" alt="Plywood rocking horse for small children" width="755" height="549" loading="lazy">
+      <p>Children's furniture, from the same workshop</p>
+    </div>
+  </section>
+
+  <!-- 3. furniture you can live with -->
+  <section class="wrap livewith" aria-labelledby="live-h">
+    <div class="livewith__left">
+      <h2 class="caps"><b>Furniture</b> you can <b>live with</b></h2>
+      <p>Carved frames, turned legs, and seats in leather or fabric, all made to order.</p>
+      <a class="cabinet" href="#pieces"><img src="img/pc-cabinet.webp" alt="Two-door wooden cabinet with turned corner posts" width="617" height="671" loading="lazy"><span class="link">The range <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m4.5 2.5 3.5 3.5-3.5 3.5"/></svg></span></a>
+      <a class="weave-card" href="avasa-cane-catalogue-2026.pdf"><span class="tile"><img src="img/cane-weave.webp" alt="Close view of woven cane" width="800" height="600" loading="lazy"></span><span class="link">Our cane <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m4.5 2.5 3.5 3.5-3.5 3.5"/></svg></span></a>
+    </div>
+    <div class="livewith__right">
+      <h2 class="serif" id="live-h">Carved <span class="inline-tile"><img src="img/pc-dining-chair.webp" alt="" width="573" height="885"></span> details for every room</h2>
+      <p>Every piece can change size, wood colour and fabric before we build it.</p>
+      <div class="hero__actions">
+        <a class="btn" href="#pieces">See the range <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a class="wa" href="avasa-chairs-catalogue-2025.pdf">Chairs<br>catalogue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. cane in every room -->
+  <section class="wrap rooms" id="rooms" aria-labelledby="rooms-h">
+    <div class="rooms__title"><span class="tag">Cane furniture</span><h2 class="serif" id="rooms-h">Cane chairs in 15 designs</h2></div>
+    <div class="rooms__row">
+      <div>
+        <div class="yellow-circle"><img src="img/chair-pj.webp" alt="Cane chair with angled wooden arms and a grey cushion" width="576" height="900" loading="lazy"></div>
+        <h3>Cane armchair</h3>
+        <p class="small">Woven cane back and seat, in the wood finish of your choice.</p>
+      </div>
+      <a class="warmth" href="avasa-cane-catalogue-2026.pdf"><span class="dot-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span><span class="caps"><b>Your wood,</b> your <b>fabric,</b> every room</span></a>
+      <div class="tile t-lime-wide"><img src="img/pc-armchair.webp" alt="Armchair in green leather with brass studs and carved wooden arms" width="718" height="810" loading="lazy"></div>
+      <div class="room-copy">
+        <div class="tags"><span class="tag">#Living</span><span class="tag">#Made to order</span></div>
+        <h3 class="serif">Upholstered in your fabric</h3>
+        <p class="small">Leather, leatherette or cloth, with brass studs where you want them.</p>
+        <a class="link" href="#quote">Ask for a quote <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m4.5 2.5 3.5 3.5-3.5 3.5"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. pieces -->
+  <section class="wrap pieces" id="pieces" aria-labelledby="pieces-h">
+    <div class="pieces__head">
+      <h2 class="serif" id="pieces-h">Pieces from our workshop</h2>
+      <div><p class="caps"><b>Furniture that fits</b> your room</p><p class="small">Pick a piece, send us a photo of one you like, or bring your own drawing.</p></div>
+    </div>
+    <div class="cards">
+      <a class="pcard" href="#quote" data-piece="Bed"><figure><img src="img/pc-bed.webp" alt="Four-poster bed with carved finials and two bedside cabinets" width="1221" height="936" loading="lazy"></figure><div><h3>Four-poster bed</h3><span>Enquire ›</span></div></a>
+      <a class="pcard is-pink" href="#quote" data-piece="Sofa or settee"><figure><img src="img/pc-settee.webp" alt="Two-seat settee with a spindle back and green leather" width="755" height="392" loading="lazy"></figure><div><h3>Spindle-back settee</h3><span>Enquire ›</span></div></a>
+      <a class="pcard" href="#quote" data-piece="Table"><figure><img src="img/pc-console.webp" alt="Wooden console table with two cane-fronted drawers" width="856" height="616" loading="lazy"></figure><div><h3>Cane console</h3><span>Enquire ›</span></div></a>
+      <a class="pcard" href="#quote" data-piece="Table"><figure><img src="img/pc-side-table.webp" alt="Round wooden side table on turned legs" width="831" height="946" loading="lazy"></figure><div><h3>Round side table</h3><span>Enquire ›</span></div></a>
+    </div>
+  </section>
+
+  <!-- 6. workshop -->
+  <section class="wrap workshop" id="workshop" aria-labelledby="workshop-h">
+    <div class="studs">
+      <div class="tile"><img src="img/workshop-studs.webp" alt="Brass studs along the edge of a green leather seat" width="720" height="720" loading="lazy"></div>
+      <h3>Brass-stud finish</h3>
+      <p class="small">Brass studs along the leather edges, where you want them.</p>
+    </div>
+    <div class="annot">
+      <img src="img/pc-captains-chair.webp" alt="Swivel captain's chair with a spindle back, turned legs and green leather" width="539" height="711" loading="lazy">
+      <span class="pin pin--o">Green leather</span>
+      <span class="pin pin--l">Turned wooden legs</span>
+      <span class="plus" style="left: 46%; top: 12%" aria-hidden="true">+</span>
+      <span class="plus" style="left: 16%; top: 72%" aria-hidden="true">+</span>
+    </div>
+    <div>
+      <h2 class="serif" id="workshop-h">Frame, finish <span class="inline-tile"><img src="img/kc-blue-chair.webp" alt="" width="400" height="558"></span> and upholstery, in one workshop</h2>
+      <ol>
+        <li><b>1</b><span>You send a picture of the piece and the size you need.</span></li>
+        <li><b>2</b><span>You pick the wood colour and the fabric.</span></li>
+        <li><b>3</b><span>We build the frame, finish the wood and upholster it.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 7. quote -->
+  <section class="wrap quote" id="quote" aria-labelledby="quote-h">
+    <div class="quote__intro">
+      <span class="tag">Request a quote</span>
+      <h2 class="serif" id="quote-h">Tell us what you want built</h2>
+      <p>Send the piece, the size and how many you need. We reply with a price on WhatsApp or by phone.</p>
+      <form class="form" id="quote-form" novalidate>
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required aria-describedby="f-name-err"><p class="err" id="f-name-err" hidden>Write the name we should reply to.</p></div>
+        <div class="field"><label for="f-phone">Phone or WhatsApp</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="f-phone-err"><p class="err" id="f-phone-err" hidden>Write a number we can call or message.</p></div>
+        <div class="field field--full"><label for="f-piece">Piece</label>
+          <select id="f-piece" name="piece">
+            <option>Chairs</option><option>Sofa or settee</option><option>Bed</option><option>Wardrobe or cabinet</option><option>Table</option><option>Cane furniture</option><option>Children's furniture</option><option>Something else</option>
+          </select></div>
+        <div class="field field--full"><label for="f-details">Size, quantity, wood colour and fabric</label><textarea id="f-details" name="details" rows="3"></textarea></div>
+        <div class="form__row">
+          <button class="btn" type="submit">Send on WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
+          <a class="link" href="mailto:avasadesign9@gmail.com" id="mail-link">Send by email</a>
+        </div>
+        <p class="status" role="status" id="form-status"></p>
+      </form>
+    </div>
+    <div>
+      <div class="tile t-pink">
+        <span class="tag">#Made to order</span>
+        <img src="img/hero-bench.webp" alt="Bench with carved scroll arms and a tan leather seat" width="1013" height="513" loading="lazy">
+        <p class="caps"><b>Furniture</b> made <b>in Chennai</b></p>
+      </div>
+      <div class="contact-lines">
+        <div><h3>Workshop and office</h3><p><a href="https://www.openstreetmap.org/search?query=200%20Feet%20Radial%20Road%20Old%20Pallavaram%20Chennai">S.No. 93, 2C, 200 Feet Radial Road, Old Pallavaram, Chennai 600117</a></p></div>
+        <div><h3>Talk to us</h3><p><a href="tel:+919965566552">99655 66552</a><br><a href="mailto:avasadesign9@gmail.com">avasadesign9@gmail.com</a></p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap footer">
+  <a class="logo" href="#main" aria-label="Avasa Design, back to top">Avasa<i>.</i></a>
+  <ul>
+    <li><a href="#pieces">Furniture</a></li>
+    <li><a href="#rooms">Cane</a></li>
+    <li><a href="#workshop">Workshop</a></li>
+    <li><a href="avasa-chairs-catalogue-2025.pdf">Chairs catalogue</a></li>
+    <li><a href="avasa-cane-catalogue-2026.pdf">Cane catalogue</a></li>
+  </ul>
+  <small>&copy; 2026 Avasa Design. Made in India.</small>
+</footer>
+
+<script>
+// cards pick the matching piece in the form
+document.querySelectorAll('[data-piece]').forEach(card => card.addEventListener('click', () => {
+  document.getElementById('f-piece').value = card.dataset.piece;
+}));
+// quote form: checked on submit, then sent as a WhatsApp message (or an email) with what was typed
+const form = document.getElementById('quote-form');
+const status = document.getElementById('form-status');
+const message = () => {
+  const d = new FormData(form);
+  return `Hello Avasa Design, I would like a quote.\nName: ${d.get('name')}\nPhone: ${d.get('phone')}\nPiece: ${d.get('piece')}\nDetails: ${d.get('details') || '-'}`;
+};
+const check = () => {
+  let first = null;
+  ['f-name', 'f-phone'].forEach(id => {
+    const el = document.getElementById(id), err = document.getElementById(id + '-err'), bad = !el.value.trim();
+    el.setAttribute('aria-invalid', String(bad)); err.hidden = !bad;
+    if (bad && !first) first = el;
+  });
+  if (first) { first.focus(); status.textContent = 'Fill in the fields marked above.'; return false; }
+  status.textContent = ''; return true;
+};
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  if (!check()) return;
+  window.open(`https://wa.me/919965566552?text=${encodeURIComponent(message())}`, '_blank', 'noopener');
+  status.textContent = 'WhatsApp opened with your request. Press send there.';
+});
+document.getElementById('mail-link').addEventListener('click', e => {
+  if (!check()) { e.preventDefault(); return; }
+  e.currentTarget.href = `mailto:avasadesign9@gmail.com?subject=${encodeURIComponent('Quote request')}&body=${encodeURIComponent(message())}`;
+});
+</script>
+</body>
+</html>
