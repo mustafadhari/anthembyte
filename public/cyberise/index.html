@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Cyberise Ventures — AI Ad Creatives &amp; Video Editing</title>
+<meta name="description" content="Video editor and AI ad creative specialist. Scroll-stopping static ads, AI product shoots, reels and video ads — generated with AI, finished by hand." />
+<meta name="theme-color" content="#F5F5F0" />
+<link rel="icon" href="logo-mark.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="img/plant-protein.webp" />
+<style>
+:root{
+  --bg:#F5F5F0;
+  --paper:#FFFFFF;
+  --ink:#0B0B0B;
+  --ink-2:#3A3A36;
+  --ink-3:#4A4A45;
+  --line:#DADAD3;
+  --line-2:#C9C9C1;
+  --accent:#00B3A4;
+  --accent-ink:#007A70;
+  --muted-dark:#A8A8A0;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --wrap:1280px;
+  --pad:clamp(20px,4vw,32px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+a:hover{color:var(--accent-ink)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+::selection{background:var(--accent);color:var(--ink)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--pad)}
+.display{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:.95;margin:0}
+.h2{font-size:clamp(40px,5vw,72px)}
+.eyebrow{margin:0 0 12px;font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:600;font-size:16px;padding:16px 28px;border-radius:999px;border:1.5px solid var(--ink);transition:transform .2s cubic-bezier(.16,1,.3,1),background-color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn--dark{background:var(--ink);color:#fff}
+.btn--dark:hover{color:#fff}
+.btn--light{background:#fff;color:var(--ink)}
+.btn--accent{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+.btn--accent:hover{color:var(--ink)}
+
+/* nav */
+.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-block:24px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand:hover{color:var(--ink)}
+.brand__word{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em;line-height:1}
+.brand__word small{display:block;font-size:10px;font-weight:700;letter-spacing:.42em;margin-top:3px}
+.nav__links{display:flex;flex-wrap:wrap;align-items:center;gap:28px;font-size:15px;font-weight:500}
+.nav__links a{text-decoration:none}
+.nav__links .btn{padding:12px 20px;font-size:15px}
+@media (max-width:720px){.nav__links a:not(.btn){display:none}}
+
+/* hero */
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:48px;padding-block:48px 80px}
+.hero__copy{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:28px}
+.pill{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;font-size:14px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 16px;margin:0}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.hero h1{font-size:clamp(56px,8.5vw,116px);line-height:.92;letter-spacing:-.035em}
+.hero h1 mark{background:var(--accent);color:var(--ink);padding:0 14px;border-radius:14px;display:inline-block;transform:rotate(-2deg)}
+.hero__lede{margin:0;font-size:clamp(18px,1.6vw,20px);max-width:560px;color:var(--ink-2)}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:12px}
+.chips{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;font-size:14px;font-weight:500}
+.chips li{border:1px solid var(--line-2);border-radius:999px;padding:6px 14px}
+.stack{flex:1 1 400px;min-width:0;position:relative;height:clamp(440px,48vw,560px);max-width:520px;margin:0 auto}
+.stack img{position:absolute;object-fit:cover;border-radius:20px;border:6px solid #fff;box-shadow:0 24px 48px rgba(11,11,11,.18);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.stack__a{left:0;top:12%;width:58%;aspect-ratio:4/5;transform:rotate(-7deg)}
+.stack__b{right:0;top:0;width:52%;aspect-ratio:1/1;transform:rotate(6deg)}
+.stack__c{left:24%;bottom:0;width:56%;aspect-ratio:4/5;transform:rotate(-1deg);box-shadow:0 30px 60px rgba(11,11,11,.25)!important}
+.stack:hover .stack__a{transform:rotate(-10deg) translateX(-12px)}
+.stack:hover .stack__b{transform:rotate(9deg) translateX(12px)}
+.stack__tag{position:absolute;right:4%;bottom:13%;background:var(--ink);color:#fff;font-size:13px;font-weight:600;padding:10px 14px;border-radius:12px;transform:rotate(4deg)}
+
+/* marquee */
+.marquee-clip{overflow:hidden;padding-block:12px}
+.marquee{background:var(--ink);color:#fff;overflow:hidden;padding:22px 0;transform:rotate(-1deg);margin-inline:-20px}
+.marquee__track{display:flex;width:max-content;gap:40px;align-items:center;font-family:var(--display);font-weight:700;font-size:clamp(24px,3vw,34px);white-space:nowrap;animation:marquee 28s linear infinite}
+.marquee__track i{width:14px;height:14px;background:var(--accent);transform:rotate(45deg);flex:none}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding-block:96px 40px}
+.stat{border-top:2px solid var(--ink);padding-top:20px}
+.stat b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(56px,6vw,72px);line-height:1;letter-spacing:-.03em}
+.stat span{display:block;margin-top:8px;color:var(--ink-3)}
+
+/* section heads */
+.section{padding-block:80px}
+.head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px}
+.head p.lede{margin:0;max-width:400px;color:var(--ink-2);font-size:17px}
+
+/* work */
+.work{display:flex;flex-wrap:wrap;gap:20px}
+.work__tall{flex:1 1 340px;min-width:0}
+.work__side{flex:2 1 520px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.work__row{display:flex;flex-wrap:wrap;gap:20px}
+.work__row figure{flex:1 1 240px;min-width:0}
+.shot{margin:0;display:flex;flex-direction:column;gap:12px}
+.shot__img{border-radius:24px;overflow:hidden;background:#E7E7E1}
+.shot__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.shot:hover .shot__img img{transform:scale(1.03)}
+.shot figcaption{display:flex;justify-content:space-between;gap:12px;font-size:15px}
+.shot figcaption strong{font-weight:600}
+.shot figcaption span{color:var(--ink-3)}
+
+/* video */
+.dark{background:var(--ink);color:#fff}
+.dark .eyebrow{color:var(--accent)}
+.dark a:hover{color:#fff}
+.dark .section{padding-block:112px}
+.vid{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#fff}
+.vid__frame{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:#1C1C1A}
+.vid__frame img,.vid__frame iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.vid__tag{position:absolute;top:14px;left:14px;font-size:11px;font-weight:700;letter-spacing:.08em;background:#fff;color:var(--ink);padding:5px 10px;border-radius:999px}
+.vid__len{position:absolute;bottom:12px;right:12px;font-size:12px;font-weight:600;background:rgba(11,11,11,.8);padding:4px 8px;border-radius:6px}
+.vid__play{position:absolute;left:50%;top:50%;width:60px;height:60px;margin:-30px 0 0 -30px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.vid:hover .vid__play{transform:scale(1.1)}
+.vid strong{font-weight:600;font-size:15px}
+.vid--feature{margin-bottom:40px}
+.vid--feature .vid__frame{border-radius:28px}
+.vid--feature .vid__tag{top:24px;left:24px;font-size:13px;padding:7px 14px}
+.vid--feature .vid__len{bottom:24px;right:24px;font-size:14px;padding:6px 12px}
+.vid--feature .vid__play{width:104px;height:104px;margin:-52px 0 0 -52px;box-shadow:0 16px 40px rgba(0,0,0,.35)}
+.vid--feature .vid__cap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:17px}
+.vid--feature .vid__cap span{color:var(--muted-dark)}
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px 20px}
+.vid.is-playing .vid__tag,.vid.is-playing .vid__len,.vid.is-playing .vid__play{display:none}
+
+/* cards */
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:14px}
+.card__n{font-family:var(--display);font-weight:800;font-size:20px;color:var(--accent-ink)}
+.card h3{margin:0;font-family:var(--display);font-size:26px;font-weight:700;line-height:1.1}
+.card p{margin:0;color:var(--ink-2)}
+.steps{list-style:none;margin:64px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--ink)}
+.steps li{padding:24px 20px 0 0}
+.steps strong{display:block;font-family:var(--display);font-size:22px}
+.steps span{color:var(--ink-3)}
+
+/* rates */
+.rates{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.rate{background:#fff;border:1px solid var(--line);border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:20px;position:relative}
+.rate h3{margin:0;font-size:18px;font-weight:600}
+.rate__price{margin:0;font-family:var(--display);font-weight:800;font-size:52px;line-height:1}
+.rate__price small{font-size:20px;font-weight:600;color:var(--ink-3)}
+.rate ul{margin:0;padding-left:20px;color:var(--ink-2);display:flex;flex-direction:column;gap:8px}
+.rate .btn{margin-top:auto;padding:14px}
+.rate--hot{background:var(--ink);color:#fff;border-color:var(--ink)}
+.rate--hot ul{color:#D6D6CF}
+.rate__badge{position:absolute;top:28px;right:28px;background:var(--accent);color:var(--ink);font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px}
+
+/* contact */
+.cta{background:var(--accent);border-radius:36px;padding:clamp(28px,6vw,80px);display:flex;flex-wrap:wrap;gap:48px}
+.cta__copy{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.cta__copy h2{font-size:clamp(44px,6vw,88px);line-height:.92;letter-spacing:-.035em}
+.cta__copy p{margin:0;font-size:18px;max-width:440px}
+.cta__links{display:flex;flex-direction:column;gap:10px;font-size:17px;font-weight:600}
+.cta__links a:hover{color:var(--ink);text-decoration-thickness:2px}
+.form{flex:1 1 380px;min-width:0;background:#fff;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:16px}
+.form label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+.form input,.form select,.form textarea{font:inherit;font-weight:400;font-size:16px;padding:14px 16px;border:1.5px solid var(--line-2);border-radius:14px;background:var(--bg);color:var(--ink)}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--ink)}
+.form textarea{resize:vertical}
+.form button{font:inherit;cursor:pointer}
+
+/* footer */
+.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding-block:24px 48px;font-size:14px;color:var(--ink-3)}
+.foot img{height:72px;width:108px;object-fit:cover;mix-blend-mode:multiply}
+.foot nav{display:flex;gap:20px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .marquee__track{animation:none}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="wrap nav">
+  <a href="#top" class="brand" aria-label="Cyberise Ventures home">
+    <img src="logo-mark.svg" alt="" width="40" height="40" />
+    <span class="brand__word">CYBERISE<small>VENTURES</small></span>
+  </a>
+  <nav class="nav__links" aria-label="Main">
+    <a href="#work">Work</a>
+    <a href="#videos">Video ads</a>
+    <a href="#services">Services</a>
+    <a href="#rates">Rates</a>
+    <a href="#contact" class="btn btn--dark">Book a call</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="wrap hero">
+    <div class="hero__copy">
+      <p class="pill"><i></i>Booking new brands for [MONTH]</p>
+      <h1 class="display">Ads that<br />stop the <mark>scroll.</mark></h1>
+      <p class="hero__lede">I'm a video editor and AI ad creative specialist. I turn one product photo and a brief into scroll-stopping statics, reels and video ads — generated with AI, finished by hand.</p>
+      <div class="hero__ctas">
+        <a href="#work" class="btn btn--dark">See the work</a>
+        <a href="#videos" class="btn btn--light"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4 20 12 6 20Z" fill="currentColor"/></svg>Watch the videos</a>
+      </div>
+      <ul class="chips">
+        <li>AI product shoots</li>
+        <li>Static ads</li>
+        <li>Reels &amp; UGC-style edits</li>
+        <li>Hook-first copy</li>
+      </ul>
+    </div>
+    <div class="stack" aria-hidden="true">
+      <img class="stack__a" src="img/racquet-launch.webp" alt="" />
+      <img class="stack__b" src="img/lead-gen-hook.webp" alt="" />
+      <img class="stack__c" src="img/plant-protein.webp" alt="" />
+      <span class="stack__tag">100% AI-generated scene</span>
+    </div>
+  </section>
+
+  <div class="marquee-clip" aria-hidden="true">
+  <div class="marquee">
+    <div class="marquee__track">
+      <span>AI PRODUCT SHOOTS</span><i></i><span>STATIC ADS</span><i></i><span>REELS</span><i></i><span>UGC-STYLE EDITS</span><i></i><span>MOTION GRAPHICS</span><i></i>
+      <span>AI PRODUCT SHOOTS</span><i></i><span>STATIC ADS</span><i></i><span>REELS</span><i></i><span>UGC-STYLE EDITS</span><i></i><span>MOTION GRAPHICS</span><i></i>
+    </div>
+  </div>
+  </div>
+
+  <section class="wrap stats" aria-label="Numbers">
+    <div class="stat"><b>[000]+</b><span>ad creatives delivered</span></div>
+    <div class="stat"><b>[00]</b><span>brands across D2C, travel, food &amp; real estate</span></div>
+    <div class="stat"><b>[0]-day</b><span>first-draft turnaround</span></div>
+    <div class="stat"><b>0</b><span>photoshoots needed. Just your product.</span></div>
+  </section>
+
+  <section id="work" class="wrap section">
+    <div class="head">
+      <div>
+        <p class="eyebrow">01 — Ad creatives</p>
+        <h2 class="display h2">Statics that<br />sell in one glance.</h2>
+      </div>
+      <p class="lede">AI-generated scenes, real product packshots and hooks written for the feed. Every frame is composited, retouched and typeset by hand.</p>
+    </div>
+    <div class="work">
+      <figure class="shot work__tall">
+        <div class="shot__img" style="height:clamp(520px,62vw,860px)"><img src="img/poster-series.webp" alt="Wall of twelve ad posters for travel, food, solar and home brands" loading="lazy" style="object-position:top" /></div>
+        <figcaption><strong>Local brand series — 12 posters</strong><span>Travel · Food · Solar · Home</span></figcaption>
+      </figure>
+      <div class="work__side">
+        <figure class="shot">
+          <div class="shot__img" style="height:clamp(300px,34vw,470px)"><img src="img/plant-protein.webp" alt="Three plant-protein sachets in a sunlit cacao and coffee farm" loading="lazy" style="object-position:center 40%" /></div>
+          <figcaption><strong>Plant protein — AI product scene</strong><span>D2C · Nutrition</span></figcaption>
+        </figure>
+        <div class="work__row">
+          <figure class="shot">
+            <div class="shot__img" style="height:330px"><img src="img/racquet-launch.webp" alt="Friends with tennis racquets under a bold yellow headline" loading="lazy" /></div>
+            <figcaption><strong>Racquet launch key visual</strong><span>Sports</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot__img" style="height:330px"><img src="img/lead-gen-hook.webp" alt="Handwritten-style hook ad for property leads" loading="lazy" /></div>
+            <figcaption><strong>Lead-gen hook static</strong><span>Real estate</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="videos" class="dark">
+    <section class="wrap section">
+      <div class="head">
+        <div>
+          <p class="eyebrow">02 — Video ads</p>
+          <h2 class="display h2">Hooked in<br />the first second.</h2>
+        </div>
+        <a href="https://www.youtube.com/playlist?list=PL2FK8-bITprolGF1CwH0mvWwegsQJPk9K" class="btn btn--accent" target="_blank" rel="noopener">Full playlist on YouTube<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <a class="vid vid--feature" data-yt="tEYed2jmVJg" href="https://www.youtube.com/watch?v=tEYed2jmVJg" target="_blank" rel="noopener">
+        <span class="vid__frame">
+          <img src="img/videos/tEYed2jmVJg.webp" alt="" loading="lazy" />
+          <span class="vid__tag">FEATURED · PRODUCT AD</span>
+          <span class="vid__play"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4 20 12 7 20Z" fill="#0B0B0B"/></svg></span>
+          <span class="vid__len">0:31</span>
+        </span>
+        <span class="vid__cap"><strong>Gaming headset — 3D product ad</strong><span>Play video</span></span>
+      </a>
+
+      <div class="vids">
+        <a class="vid" data-yt="Y8Y10roCvfA" href="https://www.youtube.com/watch?v=Y8Y10roCvfA" target="_blank" rel="noopener">
+          <span class="vid__frame"><img src="img/videos/Y8Y10roCvfA.webp" alt="" loading="lazy" /><span class="vid__tag">PRODUCT AD</span><span class="vid__play"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4 20 12 7 20Z" fill="#0B0B0B"/></svg></span><span class="vid__len">0:10</span></span>
+          <strong>3D mascot product ad</strong>
+        </a>
+        <a class="vid" data-yt="Q7C3iQ16mpY" href="https://www.youtube.com/watch?v=Q7C3iQ16mpY" target="_blank" rel="noopener">
+          <span class="vid__frame"><img src="img/videos/Q7C3iQ16mpY.webp" alt="" loading="lazy" /><span class="vid__tag">PRODUCT AD</span><span class="vid__play"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4 20 12 7 20Z" fill="#0B0B0B"/></svg></span><span class="vid__len">0:10</span></span>
+          <strong>Product ad — 10-second cut</strong>
+        </a>
+        <a class="vid" data-yt="NfKNr5inqvQ" href="https://www.youtube.com/watch?v=NfKNr5inqvQ" target="_blank" rel="noopener">
+          <span class="vid__frame"><img src="img/videos/NfKNr5inqvQ.webp" alt="" loading="lazy" /><span class="vid__tag">MOTION</span><span class="vid__play"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4 20 12 7 20Z" fill="#0B0B0B"/></svg></span><span class="vid__len">0:45</span></span>
+          <strong>Motion graphics over live footage</strong>
+        </a>
+        <a class="vid" data-yt="AOZXuVmChZs" href="https://www.youtube.com/watch?v=AOZXuVmChZs" target="_blank" rel="noopener">
+          <span class="vid__frame"><img src="img/videos/AOZXuVmChZs.webp" alt="" loading="lazy" /><span class="vid__tag">MOTION</span><span class="vid__play"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4 20 12 7 20Z" fill="#0B0B0B"/></svg></span><span class="vid__len">0:21</span></span>
+          <strong>Motion graphics</strong>
+        </a>
+        <a class="vid" data-yt="gxPIDBXkCYE" href="https://www.youtube.com/watch?v=gxPIDBXkCYE" target="_blank" rel="noopener">
+          <span class="vid__frame"><img src="img/videos/gxPIDBXkCYE.webp" alt="" loading="lazy" /><span class="vid__tag">CLIENT WORK</span><span class="vid__play"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4 20 12 7 20Z" fill="#0B0B0B"/></svg></span><span class="vid__len">0:19</span></span>
+          <strong>Talking-head edit for a client</strong>
+        </a>
+        <a class="vid" data-yt="ajpdwNgtngk" href="https://www.youtube.com/watch?v=ajpdwNgtngk" target="_blank" rel="noopener">
+          <span class="vid__frame"><img src="img/videos/ajpdwNgtngk.webp" alt="" loading="lazy" /><span class="vid__tag">UI ANIMATION</span><span class="vid__play"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4 20 12 7 20Z" fill="#0B0B0B"/></svg></span><span class="vid__len">0:44</span></span>
+          <strong>UI animation project</strong>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <section id="services" class="wrap section" style="padding-top:112px">
+    <p class="eyebrow">03 — Services</p>
+    <h2 class="display h2" style="margin-bottom:48px">One editor.<br />Every format your ads need.</h2>
+    <div class="grid4">
+      <article class="card"><span class="card__n">01</span><h3>AI product shoots</h3><p>Your packshot placed in any world — farms, kitchens, beaches, studios. No crew, no location fees.</p></article>
+      <article class="card"><span class="card__n">02</span><h3>Performance statics</h3><p>Feed, story and carousel sizes with hook-led headlines, built in batches so you can test angles fast.</p></article>
+      <article class="card"><span class="card__n">03</span><h3>Video ads &amp; reels</h3><p>3D product spots, motion graphics and UGC-style edits with captions, sound design and pacing for every placement.</p></article>
+      <article class="card"><span class="card__n">04</span><h3>Hooks &amp; angles</h3><p>Every batch starts with 5–10 written hooks per product, so the creative is built around what makes people stop.</p></article>
+    </div>
+    <ol class="steps">
+      <li><strong>Brief</strong><span>15-min call. Product, offer, audience.</span></li>
+      <li><strong>Hooks</strong><span>Angles and headlines, approved before design.</span></li>
+      <li><strong>Generate &amp; edit</strong><span>AI scenes, then hand compositing and cut.</span></li>
+      <li><strong>Deliver</strong><span>All sizes, two revision rounds, source files.</span></li>
+    </ol>
+  </section>
+
+  <section id="rates" class="wrap section" style="padding-bottom:112px">
+    <p class="eyebrow">04 — Rates</p>
+    <h2 class="display h2" style="margin-bottom:48px">Simple packages.</h2>
+    <div class="rates">
+      <article class="rate">
+        <h3>Starter</h3>
+        <p class="rate__price">[PRICE]</p>
+        <ul><li>10 static ad creatives</li><li>1 AI product scene</li><li>Feed + story sizes</li><li>2 revision rounds</li></ul>
+        <a href="#contact" class="btn btn--light">Get started</a>
+      </article>
+      <article class="rate rate--hot">
+        <span class="rate__badge">MOST BOOKED</span>
+        <h3>Growth</h3>
+        <p class="rate__price">[PRICE]</p>
+        <ul><li>20 static ad creatives</li><li>4 video ads (15–30s)</li><li>Hook &amp; angle sheet</li><li>All sizes + source files</li></ul>
+        <a href="#contact" class="btn btn--accent">Book Growth</a>
+      </article>
+      <article class="rate">
+        <h3>Monthly retainer</h3>
+        <p class="rate__price">[PRICE]<small>/mo</small></p>
+        <ul><li>Fresh creatives every week</li><li>Statics + video ads</li><li>Monthly creative review</li><li>Priority turnaround</li></ul>
+        <a href="#contact" class="btn btn--light">Talk retainer</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap" style="padding-bottom:64px">
+    <div class="cta">
+      <div class="cta__copy">
+        <h2 class="display">Got a product?<br />Let's make it scroll-proof.</h2>
+        <p>Send the product, the offer and where it runs. You'll get hook ideas back within 24 hours.</p>
+        <div class="cta__links">
+          <a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a>
+          <a href="https://wa.me/[YOUR NUMBER]">WhatsApp · [YOUR NUMBER]</a>
+          <a href="https://instagram.com/[HANDLE]">Instagram · [@HANDLE]</a>
+        </div>
+      </div>
+      <form class="form" id="brief">
+        <label>Your name<input name="name" type="text" autocomplete="name" placeholder="Jane from Brand Co." required /></label>
+        <label>Email<input name="email" type="email" autocomplete="email" placeholder="you@brand.com" required /></label>
+        <label>What do you need?<select name="need"><option>Static ads</option><option>Video ads &amp; reels</option><option>AI product shoot</option><option>Monthly retainer</option></select></label>
+        <label>Product link or brief<textarea name="brief" rows="3" placeholder="Link to your product, offer, deadline"></textarea></label>
+        <button type="submit" class="btn btn--dark">Send brief</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <img src="img/cyberise-logo.webp" alt="Cyberise Ventures" width="108" height="72" loading="lazy" />
+  <p style="margin:0">© 2026 Cyberise Ventures · AI ad creatives &amp; video editing</p>
+  <nav aria-label="Social">
+    <a href="https://www.youtube.com/playlist?list=PL2FK8-bITprolGF1CwH0mvWwegsQJPk9K" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://instagram.com/[HANDLE]">Instagram</a>
+    <a href="#contact">LinkedIn</a>
+  </nav>
+</footer>
+
+<script>
+// TODO: set the real inbox before going live.
+var CONTACT_EMAIL = '[YOUR EMAIL]';
+
+// Click a video card to play it in place; falls back to the YouTube link without JS.
+document.querySelectorAll('.vid[data-yt]').forEach(function (card) {
+  card.addEventListener('click', function (e) {
+    if (card.classList.contains('is-playing')) return;
+    e.preventDefault();
+    var frame = card.querySelector('.vid__frame');
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + card.dataset.yt + '?autoplay=1&rel=0';
+    iframe.title = card.querySelector('strong').textContent;
+    iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    iframe.allowFullscreen = true;
+    frame.querySelector('img').replaceWith(iframe);
+    card.classList.add('is-playing');
+  });
+});
+
+// Brief form opens the visitor's mail app with the details filled in.
+document.getElementById('brief').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.target;
+  var body = 'Name: ' + f.name.value + '\nEmail: ' + f.email.value + '\nNeed: ' + f.need.value + '\n\n' + f.brief.value;
+  location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('Ad creative brief — ' + f.name.value) + '&body=' + encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
